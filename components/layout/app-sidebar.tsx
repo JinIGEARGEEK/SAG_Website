@@ -3,20 +3,25 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
-  BarChart3,
+  ChevronRight,
   ChevronsUpDown,
-  FileText,
   FlaskConical,
+  Globe,
   LayoutDashboard,
   LogOut,
-  Package,
-  ScrollText,
   Settings,
-  ShoppingCart,
-  Users,
+  WrapText,
+  BarChart2,
+  Bell,
+  ClipboardList,
 } from "lucide-react"
 
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,32 +38,25 @@ import {
   SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
-  SidebarMenuBadge,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-const navMain = [
-  { title: "Dashboard", url: "/", icon: LayoutDashboard },
-  { title: "Analytics", url: "/analytics", icon: BarChart3 },
-  { title: "Reports", url: "/reports", icon: FileText },
-]
-
-const navManagement = [
-  { title: "Users", url: "/users", icon: Users, badge: "12" },
-  { title: "Products", url: "/products", icon: Package },
-  { title: "Orders", url: "/orders", icon: ShoppingCart, badge: "5" },
-]
-
-const navSystem = [
-  { title: "Settings", url: "/settings", icon: Settings },
-  { title: "Logs", url: "/logs", icon: ScrollText },
-  { title: "Examples", url: "/examples", icon: FlaskConical },
+const exampleSubItems = [
+  { title: "Internationalization", url: "/examples/i18n",       icon: Globe },
+  { title: "Form Validation",      url: "/examples/form",       icon: ClipboardList },
+  { title: "Date & Number Format", url: "/examples/formatter",  icon: WrapText },
+  { title: "Global State",         url: "/examples/state",      icon: BarChart2 },
+  { title: "Notifications",        url: "/examples/toast",      icon: Bell },
 ]
 
 export function AppSidebar() {
   const pathname = usePathname()
+  const isExamplesActive = pathname.startsWith("/examples")
 
   return (
     <Sidebar collapsible="icon">
@@ -84,61 +82,52 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupLabel>Overview</SidebarGroupLabel>
           <SidebarMenu>
-            {navMain.map((item) => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === item.url}
-                  tooltip={item.title}
-                >
-                  <Link href={item.url}>
-                    <item.icon />
-                    <span>{item.title}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
+            {/* Dashboard */}
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                isActive={pathname === "/"}
+                tooltip="Dashboard"
+              >
+                <Link href="/">
+                  <LayoutDashboard />
+                  <span>Dashboard</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
 
-        <SidebarGroup>
-          <SidebarGroupLabel>Management</SidebarGroupLabel>
-          <SidebarMenu>
-            {navManagement.map((item) => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname.startsWith(item.url)}
-                  tooltip={item.title}
-                >
-                  <Link href={item.url}>
-                    <item.icon />
-                    <span>{item.title}</span>
-                  </Link>
-                </SidebarMenuButton>
-                {item.badge && <SidebarMenuBadge>{item.badge}</SidebarMenuBadge>}
-              </SidebarMenuItem>
-            ))}
-          </SidebarMenu>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel>System</SidebarGroupLabel>
-          <SidebarMenu>
-            {navSystem.map((item) => (
-              <SidebarMenuItem key={item.title}>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname.startsWith(item.url)}
-                  tooltip={item.title}
-                >
-                  <Link href={item.url}>
-                    <item.icon />
-                    <span>{item.title}</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
+            {/* Examples — collapsible submenu */}
+            <SidebarMenuItem>
+              <Collapsible defaultOpen={isExamplesActive} className="group/collapsible">
+                <CollapsibleTrigger asChild>
+                  <SidebarMenuButton
+                    isActive={isExamplesActive}
+                    tooltip="Examples"
+                  >
+                    <FlaskConical />
+                    <span>Examples</span>
+                    <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  </SidebarMenuButton>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <SidebarMenuSub>
+                    {exampleSubItems.map((item) => (
+                      <SidebarMenuSubItem key={item.url}>
+                        <SidebarMenuSubButton
+                          asChild
+                          isActive={pathname === item.url}
+                        >
+                          <Link href={item.url}>
+                            <item.icon />
+                            <span>{item.title}</span>
+                          </Link>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    ))}
+                  </SidebarMenuSub>
+                </CollapsibleContent>
+              </Collapsible>
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
