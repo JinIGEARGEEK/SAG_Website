@@ -1,0 +1,11 @@
+{
+  "nav": { "dashboard": "Dashboard", "examples": "Examples" },
+  "examples": {
+    "title": "Common Tools Examples",
+    "i18n": { "heading": "Internationalization", "greeting": "Hello, {name}!", "switchTo": "Switch to Thai" },
+    "form": { "heading": "Form Validation", "name": "Full Name", "email": "Email", "phone": "Phone", "role": "Role", "submit": "Save", "success": "Profile saved!" },
+    "formatter": { "heading": "Date & Number Formatting" },
+    "state": { "heading": "Global State", "count": "Count: {count}", "increment": "Increment" },
+    "toast": { "heading": "Notifications", "success": "Show Success", "error": "Show Error", "warning": "Show Warning" }
+  }
+}

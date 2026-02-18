@@ -1,3 +1,4 @@
+@import "./design-tokens.css";
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -45,6 +46,31 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
+  /* --- Design token → Tailwind utility mappings --- */
+  --color-success:          var(--color-success);
+  --color-success-hover:    var(--color-success-hover);
+  --color-info:             var(--color-info);
+  --color-info-hover:       var(--color-info-hover);
+  --color-warning:          var(--color-warning);
+  --color-warning-hover:    var(--color-warning-hover);
+  --color-danger:           var(--color-danger);
+  --color-danger-hover:     var(--color-danger-hover);
+  --color-success-toast:    var(--color-success-toast);
+  --color-success-toast-bg: var(--color-success-toast-bg);
+  --color-info-toast:       var(--color-info-toast);
+  --color-info-toast-bg:    var(--color-info-toast-bg);
+  --color-warning-toast:    var(--color-warning-toast);
+  --color-warning-toast-bg: var(--color-warning-toast-bg);
+  --color-danger-toast:     var(--color-danger-toast);
+  --color-danger-toast-bg:  var(--color-danger-toast-bg);
+  --color-shadow-1:         var(--color-shadow-1);
+  --color-shadow-2:         var(--color-shadow-2);
+  --color-primary-opacity:  var(--color-primary-opacity);
+  --color-light-gray-1:     var(--color-light-gray-1);
+  --color-light-gray-2:     var(--color-light-gray-2);
+  --color-gray:             var(--color-gray);
+  --color-dark-gray:        var(--color-dark-gray);
 }
 
 :root {
@@ -55,7 +81,7 @@
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
+  --primary: var(--color-primary);
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.968 0.007 247.896);
   --secondary-foreground: oklch(0.208 0.042 265.755);
@@ -63,7 +89,7 @@
   --muted-foreground: oklch(0.554 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
   --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
+  --destructive: var(--color-danger);
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
   --ring: oklch(0.704 0.04 256.788);
@@ -89,15 +115,15 @@
   --card-foreground: oklch(0.984 0.003 247.858);
   --popover: oklch(0.208 0.042 265.755);
   --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
+  --primary: var(--color-primary);
+  --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.279 0.041 260.031);
   --secondary-foreground: oklch(0.984 0.003 247.858);
   --muted: oklch(0.279 0.041 260.031);
   --muted-foreground: oklch(0.704 0.04 256.788);
   --accent: oklch(0.279 0.041 260.031);
   --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
+  --destructive: var(--color-danger);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.551 0.027 264.364);
@@ -123,4 +149,20 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .text-title-1      { font-size: var(--font-title-1-size);   line-height: var(--font-title-1-lh);   font-weight: var(--font-title-1-weight); }
+  .text-title-2      { font-size: var(--font-title-2-size);   line-height: var(--font-title-2-lh);   font-weight: var(--font-title-2-weight); }
+  .text-title-3      { font-size: var(--font-title-3-size);   line-height: var(--font-title-3-lh);   font-weight: var(--font-title-3-weight); }
+  .text-title-4      { font-size: var(--font-title-4-size);   line-height: var(--font-title-4-lh);   font-weight: var(--font-title-4-weight); }
+  .text-title-5      { font-size: var(--font-title-5-size);   line-height: var(--font-title-5-lh);   font-weight: var(--font-title-5-weight); }
+  .text-title-6      { font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-6-weight); }
+  .text-subtitle     { font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-5-weight); }
+  .text-body         { font-size: var(--font-body-size);      line-height: var(--font-body-lh);      font-weight: var(--font-body-weight); }
+  .text-body-small   { font-size: var(--font-body-sm-size);   line-height: var(--font-body-sm-lh);   font-weight: var(--font-body-sm-weight); }
+  .text-body-tiny    { font-size: var(--font-body-xs-size);   line-height: var(--font-body-xs-lh);   font-weight: var(--font-body-xs-weight); }
+  .text-button       { font-size: var(--font-button-size);    line-height: var(--font-button-lh);    font-weight: var(--font-button-weight); }
+  .text-button-small { font-size: var(--font-button-sm-size); line-height: var(--font-button-sm-lh); font-weight: var(--font-button-sm-weight); }
+  .text-link         { font-size: var(--font-link-size);      line-height: var(--font-link-lh);      font-weight: var(--font-link-weight); }
 }

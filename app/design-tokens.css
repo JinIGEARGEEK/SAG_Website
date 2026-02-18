@@ -1,0 +1,55 @@
+:root {
+  /* === Color Tokens (raw values only) === */
+  --color-primary:           oklch(0.20 0.04 265);
+  --color-secondary:         oklch(0.55 0.18 260);
+  --color-primary-opacity:   oklch(0.20 0.04 265 / 0.10);
+  --color-secondary-opacity: oklch(0.55 0.18 260 / 0.10);
+  --color-primary-hover:     oklch(0.26 0.05 265);
+  --color-secondary-hover:   oklch(0.48 0.16 260);
+
+  /* Status */
+  --color-success:       oklch(0.65 0.18 145);
+  --color-success-hover: oklch(0.58 0.18 145);
+  --color-info:          oklch(0.62 0.15 240);
+  --color-info-hover:    oklch(0.55 0.15 240);
+  --color-warning:       oklch(0.80 0.18 75);
+  --color-warning-hover: oklch(0.73 0.18 75);
+  --color-danger:        oklch(0.577 0.245 27.325);
+  --color-danger-hover:  oklch(0.52 0.24 27);
+
+  /* Toast (separate bg / text pairs) */
+  --color-success-toast:    oklch(0.40 0.18 145);
+  --color-success-toast-bg: oklch(0.96 0.04 145);
+  --color-info-toast:       oklch(0.40 0.15 240);
+  --color-info-toast-bg:    oklch(0.96 0.03 240);
+  --color-warning-toast:    oklch(0.45 0.16 75);
+  --color-warning-toast-bg: oklch(0.97 0.04 75);
+  --color-danger-toast:     oklch(0.45 0.22 27);
+  --color-danger-toast-bg:  oklch(0.97 0.04 27);
+
+  /* Shadow */
+  --color-shadow-1: oklch(0.20 0.04 265 / 0.08);
+  --color-shadow-2: oklch(0.20 0.04 265 / 0.18);
+
+  /* Neutral */
+  --color-white:        oklch(1 0 0);
+  --color-light-gray-1: oklch(0.97 0.005 260);
+  --color-light-gray-2: oklch(0.93 0.01 260);
+  --color-gray:         oklch(0.70 0.02 260);
+  --color-dark-gray:    oklch(0.40 0.03 260);
+  --color-black:        oklch(0.10 0.02 260);
+
+  /* === Typography Tokens === */
+  --font-title-1-size: 2.25rem;   --font-title-1-lh: 2.75rem;   --font-title-1-weight: 700;
+  --font-title-2-size: 1.875rem;  --font-title-2-lh: 2.25rem;   --font-title-2-weight: 700;
+  --font-title-3-size: 1.5rem;    --font-title-3-lh: 2rem;      --font-title-3-weight: 600;
+  --font-title-4-size: 1.25rem;   --font-title-4-lh: 1.75rem;   --font-title-4-weight: 600;
+  --font-title-5-size: 1.125rem;  --font-title-5-lh: 1.625rem;  --font-title-5-weight: 500;
+  --font-title-6-size: 1rem;      --font-title-6-lh: 1.5rem;    --font-title-6-weight: 500;
+  --font-body-size:    0.9375rem; --font-body-lh: 1.5rem;       --font-body-weight: 400;
+  --font-body-sm-size: 0.875rem;  --font-body-sm-lh: 1.375rem;  --font-body-sm-weight: 400;
+  --font-body-xs-size: 0.75rem;   --font-body-xs-lh: 1.25rem;   --font-body-xs-weight: 400;
+  --font-button-size:  0.9375rem; --font-button-lh: 1.5rem;     --font-button-weight: 500;
+  --font-button-sm-size: 0.875rem;--font-button-sm-lh: 1.375rem;--font-button-sm-weight: 500;
+  --font-link-size:    0.9375rem; --font-link-lh: 1.5rem;       --font-link-weight: 400;
+}
