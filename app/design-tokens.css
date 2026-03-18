@@ -1,55 +1,151 @@
 :root {
-  /* === Color Tokens (raw values only) === */
-  --color-primary:           oklch(0.20 0.04 265);
-  --color-secondary:         oklch(0.55 0.18 260);
-  --color-primary-opacity:   oklch(0.20 0.04 265 / 0.10);
-  --color-secondary-opacity: oklch(0.55 0.18 260 / 0.10);
-  --color-primary-hover:     oklch(0.26 0.05 265);
-  --color-secondary-hover:   oklch(0.48 0.16 260);
+  /* TODO 1 — change colors and shadows to match your brand */
+
+  /* === Color Tokens === */
+
+  /* Primary */
+  --color-primary:           #E3482C;
+  --color-secondary:         #12243A;
+  --color-primary-opacity:   rgba(227, 72, 44, 0.10);
+  --color-secondary-opacity: rgba(18, 36, 58, 0.10);
+  --color-primary-hover:     #B63C23;
+  --color-secondary-hover:   #0F1E30;
 
   /* Status */
-  --color-success:       oklch(0.65 0.18 145);
-  --color-success-hover: oklch(0.58 0.18 145);
-  --color-info:          oklch(0.62 0.15 240);
-  --color-info-hover:    oklch(0.55 0.15 240);
-  --color-warning:       oklch(0.80 0.18 75);
-  --color-warning-hover: oklch(0.73 0.18 75);
-  --color-danger:        oklch(0.577 0.245 27.325);
-  --color-danger-hover:  oklch(0.52 0.24 27);
+  --color-success:       #58C176;
+  --color-success-hover: #4FB86C;
+  --color-info:          #3A80CB;
+  --color-info-hover:    #3474BD;
+  --color-warning:       #F4C862;
+  --color-warning-hover: #E8BD59;
+  --color-error:         #C84940;
+  --color-error-hover:   #BA433B;
 
-  /* Toast (separate bg / text pairs) */
-  --color-success-toast:    oklch(0.40 0.18 145);
-  --color-success-toast-bg: oklch(0.96 0.04 145);
-  --color-info-toast:       oklch(0.40 0.15 240);
-  --color-info-toast-bg:    oklch(0.96 0.03 240);
-  --color-warning-toast:    oklch(0.45 0.16 75);
-  --color-warning-toast-bg: oklch(0.97 0.04 75);
-  --color-danger-toast:     oklch(0.45 0.22 27);
-  --color-danger-toast-bg:  oklch(0.97 0.04 27);
-
-  /* Shadow */
-  --color-shadow-1: oklch(0.20 0.04 265 / 0.08);
-  --color-shadow-2: oklch(0.20 0.04 265 / 0.18);
+  /* Toast (text / background pairs) */
+  --color-success-toast:    #2D7A42;
+  --color-success-toast-bg: #E6F8E8;
+  --color-info-toast:       #2B5F96;
+  --color-info-toast-bg:    #E1ECF7;
+  --color-warning-toast:    #7A5C00;
+  --color-warning-toast-bg: #FDF7E7;
+  --color-error-toast:      #8B2F29;
+  --color-error-toast-bg:   #F7E4E2;
 
   /* Neutral */
-  --color-white:        oklch(1 0 0);
-  --color-light-gray-1: oklch(0.97 0.005 260);
-  --color-light-gray-2: oklch(0.93 0.01 260);
-  --color-gray:         oklch(0.70 0.02 260);
-  --color-dark-gray:    oklch(0.40 0.03 260);
-  --color-black:        oklch(0.10 0.02 260);
+  --color-white:        #FFFFFF;
+  --color-light-gray-1: #F1F1F0;
+  --color-light-gray-2: #E0E2E3;
+  --color-gray:         #ADB1B5;
+  --color-dark-gray:    #666B75;
+  --color-black:        #333C47;
+
+  /* Background */
+  --color-primary-bg:   #FBE4DF;
+  --color-secondary-bg: #DBDEE1;
+  --color-success-bg:   #E6F8E8;
+  --color-info-bg:      #E1ECF7;
+  --color-warning-bg:   #FDF7E7;
+  --color-error-bg:     #F7E4E2;
+
+  /* Shadows */
+  --color-shadow-1: rgba(40, 40, 40, 0.05);
+  --color-shadow-2: rgba(40, 40, 40, 0.10);
+  --shadow-1: 0 -4px  8px var(--color-shadow-1);
+  --shadow-2: 0  4px 10px var(--color-shadow-1);
+  --shadow-3: 0  4px 10px rgba(227, 72, 44, 0.10);
+
+
+
+  /* TODO 2 — change font sizes and line-heights */
 
   /* === Typography Tokens === */
-  --font-title-1-size: 2.25rem;   --font-title-1-lh: 2.75rem;   --font-title-1-weight: 700;
-  --font-title-2-size: 1.875rem;  --font-title-2-lh: 2.25rem;   --font-title-2-weight: 700;
-  --font-title-3-size: 1.5rem;    --font-title-3-lh: 2rem;      --font-title-3-weight: 600;
-  --font-title-4-size: 1.25rem;   --font-title-4-lh: 1.75rem;   --font-title-4-weight: 600;
-  --font-title-5-size: 1.125rem;  --font-title-5-lh: 1.625rem;  --font-title-5-weight: 500;
-  --font-title-6-size: 1rem;      --font-title-6-lh: 1.5rem;    --font-title-6-weight: 500;
-  --font-body-size:    0.9375rem; --font-body-lh: 1.5rem;       --font-body-weight: 400;
-  --font-body-sm-size: 0.875rem;  --font-body-sm-lh: 1.375rem;  --font-body-sm-weight: 400;
-  --font-body-xs-size: 0.75rem;   --font-body-xs-lh: 1.25rem;   --font-body-xs-weight: 400;
-  --font-button-size:  0.9375rem; --font-button-lh: 1.5rem;     --font-button-weight: 500;
-  --font-button-sm-size: 0.875rem;--font-button-sm-lh: 1.375rem;--font-button-sm-weight: 500;
-  --font-link-size:    0.9375rem; --font-link-lh: 1.5rem;       --font-link-weight: 400;
+
+  /* Desktop titles — all weight 600 (SemiBold) */
+  --font-title-1-size: 30px;  --font-title-1-lh: 45px;  --font-title-1-weight: 600;
+  --font-title-2-size: 24px;  --font-title-2-lh: 36px;  --font-title-2-weight: 600;
+  --font-title-3-size: 20px;  --font-title-3-lh: 30px;  --font-title-3-weight: 600;
+  --font-title-4-size: 18px;  --font-title-4-lh: 26px;  --font-title-4-weight: 600;
+  --font-title-5-size: 16px;  --font-title-5-lh: 24px;  --font-title-5-weight: 600;
+  --font-title-6-size: 14px;  --font-title-6-lh: 20px;  --font-title-6-weight: 600;
+
+  /* Mobile title overrides */
+  --font-title-1-mobile-size: 24px;  --font-title-1-mobile-lh: 36px;
+  --font-title-2-mobile-size: 20px;  --font-title-2-mobile-lh: 30px;
+  --font-title-3-mobile-size: 18px;  --font-title-3-mobile-lh: 26px;
+  --font-title-4-mobile-size: 16px;  --font-title-4-mobile-lh: 24px;
+  --font-title-5-mobile-size: 14px;  --font-title-5-mobile-lh: 20px;
+  --font-title-6-mobile-size: 12px;  --font-title-6-mobile-lh: 18px;
+
+  /* Body / Link / Button — Regular 400 */
+  --font-body-size:      16px;  --font-body-lh:      24px;  --font-body-weight:      400;
+  --font-body-sm-size:   14px;  --font-body-sm-lh:   20px;  --font-body-sm-weight:   400;
+  --font-body-xs-size:   12px;  --font-body-xs-lh:   18px;  --font-body-xs-weight:   400;
+  --font-button-size:    16px;  --font-button-lh:    24px;  --font-button-weight:    400;
+  --font-button-sm-size: 14px;  --font-button-sm-lh: 20px;  --font-button-sm-weight: 400;
+  --font-link-size:      16px;  --font-link-lh:      24px;  --font-link-weight:      400;
+
+  /* Input font aliases (used by .ds-input CSS classes) */
+  --font-static-input-size:     16px;
+  --font-static-input-lh:       24px;
+  --font-static-input-weight:   400;
+
+  /* Counter / error font aliases */
+  --font-static-body-xs-size:   var(--font-body-xs-size);
+  --font-static-body-xs-lh:     var(--font-body-xs-lh);
+  --font-static-body-xs-weight: var(--font-body-xs-weight);
+
+
+
+  /* TODO 3 — change text field styles */
+
+  /* === Text Field Tokens === */
+
+  /* Dimensions */
+  --input-height:        44px;
+  --input-border-radius: 10px;
+  --input-padding-left:  12px;
+  --input-padding-right: 12px;
+
+  /* Border */
+  --input-border-width:           1px;
+  --input-border-color:           var(--color-light-gray-2);
+  --input-border-color-active:    var(--color-secondary);
+  --input-border-color-disabled:  var(--color-light-gray-2);
+  --input-border-color-error:     var(--color-error);
+
+  /* Background */
+  --input-bg:          var(--color-white);
+  --input-bg-disabled: var(--color-white);
+
+  /* Label typography */
+  --input-label-size:           var(--font-static-input-size);
+  --input-label-lh:             var(--font-static-input-lh);
+  --input-label-weight:         500;
+  --input-label-color:          var(--color-black);
+  --input-label-color-error:    var(--color-error);
+  --input-label-color-disabled: var(--color-gray);
+
+  /* Input text typography */
+  --input-text-size:              var(--font-static-input-size);
+  --input-text-lh:                var(--font-static-input-lh);
+  --input-text-weight:            var(--font-static-input-weight);
+  --input-text-color:             var(--color-black);
+  --input-text-color-placeholder: var(--color-gray);
+  --input-text-color-disabled:    var(--color-gray);
+
+  /* Counter */
+  --input-counter-size:          var(--font-static-body-xs-size);
+  --input-counter-lh:            var(--font-static-body-xs-lh);
+  --input-counter-weight:        var(--font-static-body-xs-weight);
+  --input-counter-color:         var(--color-dark-gray);
+  --input-counter-padding-top:   4px;
+  --input-counter-padding-right: 0px;
+
+  /* Error message */
+  --input-error-size:           var(--font-static-body-xs-size);
+  --input-error-lh:             var(--font-static-body-xs-lh);
+  --input-error-weight:         var(--font-static-body-xs-weight);
+  --input-error-color:          var(--color-error);
+  --input-error-padding-top:    4px;
+  --input-error-padding-right:  0px;
 }
