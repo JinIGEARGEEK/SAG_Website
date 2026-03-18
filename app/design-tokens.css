@@ -56,7 +56,31 @@
 
 
 
-  /* TODO 2 — change font sizes and line-heights */
+  /* TODO 2 — change font family, sizes, and line-heights */
+
+  /* === Font Family Tokens === */
+  /* Font Family: Prompt (configured in app/layout.tsx via next/font/google)       */
+  /* TODO 2.1 — to switch fonts: change the next/font import in app/layout.tsx,   */
+  /*            update the CSS variable name below to match, then update            */
+  /*            --font-sans in app/globals.css @theme inline accordingly            */
+  --font-family:        var(--font-prompt), 'Prompt', sans-serif;
+
+  /* TODO 2.2 — to add a custom font file, add an @font-face block in globals.css */
+
+
+  /* TODO 3 — change icon family, style, and weight */
+
+  /* === Icon Family Tokens === */
+  /* Icon Family: Material Symbols (Google Fonts) */
+  /* Style: Rounded  |  Weight: 300                                               */
+  /* TODO 3.1 — to switch icon sets: update the @font-face in app/globals.css     */
+  /*            and change the vars below to match                                 */
+  --icon-font-family:   'Material Symbols Rounded';
+  --icon-font-weight:   300;
+
+
+
+  /* TODO 4 — change font sizes and line-heights */
 
   /* === Typography Tokens === */
 
@@ -96,7 +120,7 @@
 
 
 
-  /* TODO 3 — change text field styles */
+  /* TODO 5 — change text field styles */
 
   /* === Text Field Tokens === */
 

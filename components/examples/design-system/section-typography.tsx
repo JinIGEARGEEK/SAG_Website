@@ -83,7 +83,7 @@ export function SectionTypography() {
       <DemoCard>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-8">
           <div>
-            <div className="text-title-2 mb-2">Geist Sans</div>
+            <div className="text-title-2 mb-2">Prompt</div>
             <div className="flex gap-6 mb-4">
               <span style={{ fontWeight: 400 }}>Regular 400</span>
               <span style={{ fontWeight: 500 }}>Medium 500</span>
