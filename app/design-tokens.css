@@ -4,48 +4,43 @@
   /* === Color Tokens === */
 
   /* Primary */
-  --color-primary:           #E3482C;
-  --color-secondary:         #12243A;
-  --color-primary-opacity:   rgba(227, 72, 44, 0.10);
-  --color-secondary-opacity: rgba(18, 36, 58, 0.10);
-  --color-primary-hover:     #B63C23;
-  --color-secondary-hover:   #0F1E30;
+  --color-primary:           #0A1F3C;
+  --color-secondary:         #1A3E6D;
+  --color-success:           #499B49;
+  --color-info:              #489AAF;
+  --color-warning:           #E1C14C;
+  --color-error:             #C84940;
 
-  /* Status */
-  --color-success:       #58C176;
-  --color-success-hover: #4FB86C;
-  --color-info:          #3A80CB;
-  --color-info-hover:    #3474BD;
-  --color-warning:       #F4C862;
-  --color-warning-hover: #E8BD59;
-  --color-error:         #C84940;
-  --color-error-hover:   #BA433B;
+  /* Hover */
+  --color-primary-hover:     #3B4C63;
+  --color-secondary-hover:   #48658A;
+  --color-success-hover:     #6DAF6D;
+  --color-info-hover:        #6DAEBF;
+  --color-warning-hover:     #E7CD70;
+  --color-error-hover:       #D36D66;
 
-  /* Toast (text / background pairs) */
-  --color-success-toast:    #2D7A42;
-  --color-success-toast-bg: #E6F8E8;
-  --color-info-toast:       #2B5F96;
-  --color-info-toast-bg:    #E1ECF7;
-  --color-warning-toast:    #7A5C00;
-  --color-warning-toast-bg: #FDF7E7;
-  --color-error-toast:      #8B2F29;
-  --color-error-toast-bg:   #F7E4E2;
 
   /* Neutral */
   --color-white:        #FFFFFF;
-  --color-light-gray-1: #F1F1F0;
-  --color-light-gray-2: #E0E2E3;
+  --color-light-gray-1: #F0F2F5;
+  --color-light-gray-2: #D9DEE6;
   --color-gray:         #ADB1B5;
-  --color-dark-gray:    #666B75;
-  --color-black:        #333C47;
+  --color-dark-gray:    #606874;
+  --color-black:        #262C36;
 
   /* Background */
-  --color-primary-bg:   #FBE4DF;
-  --color-secondary-bg: #DBDEE1;
-  --color-success-bg:   #E6F8E8;
-  --color-info-bg:      #E1ECF7;
-  --color-warning-bg:   #FDF7E7;
+  --color-primary-bg:   #DADDE2;
+  --color-secondary-bg: #DDE2E9;
+  --color-success-bg:   #E4F0E4;
+  --color-info-bg:      #E3F0F3;
+  --color-warning-bg:   #FAF6E4;
   --color-error-bg:     #F7E4E2;
+
+  /* Gradients */
+  --gradient-primary-from: #0A1F3C;
+  --gradient-primary-to:   #1A3E6D;
+  --gradient-primary:      linear-gradient(180deg, var(--gradient-primary-from) 0%, var(--gradient-primary-to) 100%);
+  
 
   /* Shadows */
   --color-shadow-1: rgba(40, 40, 40, 0.05);
@@ -59,11 +54,12 @@
   /* TODO 2 — change font family, sizes, and line-heights */
 
   /* === Font Family Tokens === */
-  /* Font Family: Prompt (configured in app/layout.tsx via next/font/google)       */
+  /* Font Family: Inter (configured in app/layout.tsx via next/font/google)        */
   /* TODO 2.1 — to switch fonts: change the next/font import in app/layout.tsx,   */
   /*            update the CSS variable name below to match, then update            */
   /*            --font-sans in app/globals.css @theme inline accordingly            */
-  --font-family:        var(--font-prompt), 'Prompt', sans-serif;
+  --font-family:        'Inter', sans-serif;
+  --font-heading:       var(--font-playfair), 'Playfair Display', serif;
 
   /* TODO 2.2 — to add a custom font file, add an @font-face block in globals.css */
 
@@ -83,6 +79,14 @@
   /* TODO 4 — change font sizes and line-heights */
 
   /* === Typography Tokens === */
+
+  /* Heading tokens (Playfair Display — used only for heading-1 and heading-2) */
+  --font-heading-1-size: 40px;  --font-heading-1-lh: 60px;  --font-heading-1-weight: 600;
+  --font-heading-2-size: 30px;  --font-heading-2-lh: 45px;  --font-heading-2-weight: 600;
+
+  /* Mobile heading overrides */
+  --font-heading-1-mobile-size: 30px;  --font-heading-1-mobile-lh: 45px;  --font-heading-1-mobile-weight: 600;
+  --font-heading-2-mobile-size: 24px;  --font-heading-2-mobile-lh: 36px;  --font-heading-2-mobile-weight: 600;
 
   /* Desktop titles — all weight 600 (SemiBold) */
   --font-title-1-size: 30px;  --font-title-1-lh: 45px;  --font-title-1-weight: 600;

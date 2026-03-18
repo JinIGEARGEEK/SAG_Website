@@ -17,4 +17,6 @@ export const typos = {
   '.text-button':      { fontSize: 'var(--font-button-size)',  lineHeight: 'var(--font-button-lh)',  fontWeight: 'var(--font-button-weight)' },
   '.text-button-small':{ fontSize: 'var(--font-button-sm-size)', lineHeight: 'var(--font-button-sm-lh)', fontWeight: 'var(--font-button-sm-weight)' },
   '.text-link':        { fontSize: 'var(--font-link-size)',    lineHeight: 'var(--font-link-lh)',    fontWeight: 'var(--font-link-weight)' },
+  '.text-heading-1':   { fontSize: 'var(--font-heading-1-size)', lineHeight: 'var(--font-heading-1-lh)', fontWeight: 'var(--font-heading-1-weight)' },
+  '.text-heading-2':   { fontSize: 'var(--font-heading-2-size)', lineHeight: 'var(--font-heading-2-lh)', fontWeight: 'var(--font-heading-2-weight)' },
 } as const

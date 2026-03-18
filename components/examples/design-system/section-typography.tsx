@@ -8,6 +8,7 @@ import {
   useDesignTokens,
 } from "./shared"
 
+const HEADING_TOKENS = [1, 2] as const
 const TITLE_TOKENS = [1, 2, 3, 4, 5, 6] as const
 
 // Matches the token names in the target's design-tokens.css
@@ -37,11 +38,11 @@ function weightLabel(w: string) {
   return WEIGHT_LABELS[w] || w
 }
 
-/** Read computed font-size and line-height from title preview elements */
-function useComputedTitleStyles(refs: React.RefObject<(HTMLDivElement | null)[]>) {
+/** Read computed font-size and line-height from preview elements */
+function useComputedTitleStyles(refs: React.RefObject<(HTMLDivElement | null)[]>, count: number) {
   const [styles, setStyles] = useState<
     { fontSize: string; lineHeight: string }[]
-  >(TITLE_TOKENS.map(() => ({ fontSize: "", lineHeight: "" })))
+  >(Array.from({ length: count }, () => ({ fontSize: "", lineHeight: "" })))
 
   useEffect(() => {
     function measure() {
@@ -68,9 +69,15 @@ function useComputedTitleStyles(refs: React.RefObject<(HTMLDivElement | null)[]>
 
 export function SectionTypography() {
   const tokens = useDesignTokens(useMemo(() => STATIC_TOKEN_NAMES, []))
-  const titleRefs = useRef<(HTMLDivElement | null)[]>([])
-  const computedStyles = useComputedTitleStyles(titleRefs)
 
+  const headingRefs = useRef<(HTMLDivElement | null)[]>([])
+  const computedHeadingStyles = useComputedTitleStyles(headingRefs, HEADING_TOKENS.length)
+  const headingWeight = useDesignTokens(
+    useMemo(() => HEADING_TOKENS.map((n) => `--font-heading-${n}-weight`), [])
+  )
+
+  const titleRefs = useRef<(HTMLDivElement | null)[]>([])
+  const computedStyles = useComputedTitleStyles(titleRefs, TITLE_TOKENS.length)
   const titleWeight = useDesignTokens(
     useMemo(() => TITLE_TOKENS.map((n) => `--font-title-${n}-weight`), [])
   )
@@ -83,7 +90,7 @@ export function SectionTypography() {
       <DemoCard>
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-8">
           <div>
-            <div className="text-title-2 mb-2">Prompt</div>
+            <div className="text-title-2 mb-2">Inter</div>
             <div className="flex gap-6 mb-4">
               <span style={{ fontWeight: 400 }}>Regular 400</span>
               <span style={{ fontWeight: 500 }}>Medium 500</span>
@@ -101,6 +108,82 @@ export function SectionTypography() {
           <div className="text-[64px] sm:text-[96px] font-semibold text-dark-gray leading-none select-none shrink-0">
             Aa
           </div>
+        </div>
+      </DemoCard>
+
+      {/* Heading Font Family (Playfair Display) */}
+      <SubTitle>Heading Font — Playfair Display</SubTitle>
+      <DemoCard>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-8">
+          <div>
+            <div className="text-title-2 mb-2" style={{ fontFamily: "var(--font-heading)" }}>Playfair Display</div>
+            <div className="flex gap-6 mb-4" style={{ fontFamily: "var(--font-heading)" }}>
+              <span style={{ fontWeight: 600 }}>SemiBold 600</span>
+            </div>
+            <div className="text-dark-gray text-[13px] leading-5" style={{ fontFamily: "var(--font-heading)" }}>
+              abcdefghijklmnopqrstuvwxyz
+              <br />
+              ABCDEFGHIJKLMNOPQRSTUVWXYZ
+              <br />
+              0123456789
+            </div>
+          </div>
+          <div className="text-[64px] sm:text-[96px] font-semibold text-dark-gray leading-none select-none shrink-0" style={{ fontFamily: "var(--font-heading)" }}>
+            Aa
+          </div>
+        </div>
+      </DemoCard>
+
+      {/* Heading table */}
+      <DemoCard>
+        {/* Desktop */}
+        <div className="hidden md:block space-y-0">
+          <div className="grid grid-cols-[140px_1fr_120px_120px_180px] gap-4 pb-2 mb-1 border-b border-light-gray-2">
+            <span className="text-[11px] font-bold text-gray uppercase tracking-[0.06em]">Token</span>
+            <span className="text-[11px] font-bold text-gray uppercase tracking-[0.06em]">Preview</span>
+            <span className="text-[11px] font-bold text-gray uppercase tracking-[0.06em]">Size / Line Height</span>
+            <span className="text-[11px] font-bold text-gray uppercase tracking-[0.06em]">Weight</span>
+            <span className="text-[11px] font-bold text-gray uppercase tracking-[0.06em]">Class</span>
+          </div>
+          {HEADING_TOKENS.map((n, i) => {
+            const { fontSize, lineHeight } = computedHeadingStyles[i]
+            const weight = headingWeight[`--font-heading-${n}-weight`] || "600"
+            return (
+              <div key={n} className="grid grid-cols-[140px_1fr_120px_120px_180px] gap-4 items-center py-3 border-b border-light-gray-1 last:border-0">
+                <div>
+                  <code className="text-[13px] bg-light-gray-1 px-2 py-0.5 rounded">{`heading-${n}`}</code>
+                </div>
+                <div ref={(el) => { headingRefs.current[i] = el }} className={`text-heading-${n}`}>
+                  Heading {n}
+                </div>
+                <div className="text-body-small text-dark-gray">{fontSize} / {lineHeight}</div>
+                <div className="text-body-small text-dark-gray">{weightLabel(weight)}</div>
+                <code className="text-[13px] bg-light-gray-1 px-2 py-0.5 rounded w-fit">.text-heading-{n}</code>
+              </div>
+            )
+          })}
+        </div>
+        {/* Mobile */}
+        <div className="md:hidden space-y-4">
+          {HEADING_TOKENS.map((n, i) => {
+            const { fontSize, lineHeight } = computedHeadingStyles[i]
+            const weight = headingWeight[`--font-heading-${n}-weight`] || "600"
+            return (
+              <div key={n} className="border-b border-light-gray-1 last:border-0 pb-4 last:pb-0">
+                <div className="flex items-center justify-between mb-2">
+                  <code className="text-[13px] bg-light-gray-1 px-2 py-0.5 rounded">heading-{n}</code>
+                  <code className="text-[11px] text-gray bg-light-gray-1 px-1.5 py-0.5 rounded">.text-heading-{n}</code>
+                </div>
+                <div ref={(el) => { if (!headingRefs.current[i]) headingRefs.current[i] = el }} className={`text-heading-${n} mb-2`}>
+                  Heading {n}
+                </div>
+                <div className="flex gap-4 text-[12px] text-dark-gray">
+                  <span>{fontSize} / {lineHeight}</span>
+                  <span>{weightLabel(weight)}</span>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </DemoCard>
 

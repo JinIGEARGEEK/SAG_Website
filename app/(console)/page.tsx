@@ -1,169 +1,105 @@
-import {
-  ArrowDownRight,
-  ArrowUpRight,
-  DollarSign,
-  Package,
-  ShoppingCart,
-  Users,
-} from "lucide-react"
+import Image from "next/image"
+import { ChevronDown, Globe, ArrowRight } from "lucide-react"
 
-import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-
-const stats = [
-  {
-    title: "Total Revenue",
-    value: "$45,231.89",
-    change: "+20.1%",
-    trend: "up" as const,
-    description: "from last month",
-    icon: DollarSign,
-  },
-  {
-    title: "Active Users",
-    value: "2,350",
-    change: "+180.1%",
-    trend: "up" as const,
-    description: "from last month",
-    icon: Users,
-  },
-  {
-    title: "New Orders",
-    value: "12,234",
-    change: "+19%",
-    trend: "up" as const,
-    description: "from last month",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Pending Tickets",
-    value: "573",
-    change: "-3.2%",
-    trend: "down" as const,
-    description: "since last hour",
-    icon: Package,
-  },
+const NAV_LINKS = [
+  "Home",
+  "About",
+  "Situations",
+  "Advisory Services",
+  "Sectors",
+  "Global Presence",
+  "Leadership",
 ]
 
-const recentActivity = [
-  {
-    id: "TXN-001",
-    user: "Alice Johnson",
-    action: "New order placed",
-    amount: "$250.00",
-    status: "pending",
-    time: "2m ago",
-  },
-  {
-    id: "TXN-002",
-    user: "Bob Smith",
-    action: "Payment received",
-    amount: "$1,200.00",
-    status: "completed",
-    time: "15m ago",
-  },
-  {
-    id: "TXN-003",
-    user: "Carol White",
-    action: "Refund requested",
-    amount: "$89.00",
-    status: "processing",
-    time: "1h ago",
-  },
-  {
-    id: "TXN-004",
-    user: "David Lee",
-    action: "Account upgraded",
-    amount: "$499.00",
-    status: "completed",
-    time: "2h ago",
-  },
-  {
-    id: "TXN-005",
-    user: "Emma Davis",
-    action: "Support ticket opened",
-    amount: "—",
-    status: "open",
-    time: "3h ago",
-  },
-]
-
-const statusVariant: Record<string, "default" | "secondary" | "outline" | "destructive"> = {
-  pending: "secondary",
-  completed: "default",
-  processing: "outline",
-  open: "destructive",
-}
-
-export default function DashboardPage() {
+export default function HomePage() {
   return (
-    <div className="flex flex-1 flex-col gap-6 p-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="text-sm text-muted-foreground">
-          Welcome back — here&apos;s what&apos;s happening today.
-        </p>
-      </div>
+    <div className="min-h-screen flex flex-col" style={{ background: "var(--gradient-primary)" }}>
 
-      {/* Stats */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat) => (
-          <Card key={stat.title}>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-sm font-medium text-muted-foreground">
-                {stat.title}
-              </CardTitle>
-              <stat.icon className="size-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{stat.value}</div>
-              <div className="mt-1 flex items-center gap-1 text-xs">
-                {stat.trend === "up" ? (
-                  <ArrowUpRight className="size-3 text-emerald-500" />
-                ) : (
-                  <ArrowDownRight className="size-3 text-destructive" />
-                )}
-                <span className={stat.trend === "up" ? "text-emerald-500" : "text-destructive"}>
-                  {stat.change}
-                </span>
-                <span className="text-muted-foreground">{stat.description}</span>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      {/* Navbar */}
+      <header className="w-full px-8 py-5 flex items-center justify-between">
+        <span className="text-white font-bold text-sm tracking-[0.15em] uppercase select-none">
+          Stern Advisory Global
+        </span>
 
-      {/* Recent Activity */}
-      <Card className="flex-1">
-        <CardHeader>
-          <CardTitle>Recent Activity</CardTitle>
-          <CardDescription>
-            Latest transactions and events across the platform.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="p-0">
-          <div className="divide-y">
-            {recentActivity.map((item) => (
-              <div key={item.id} className="flex items-center gap-4 px-6 py-3">
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-muted-foreground">{item.id}</span>
-                    <Badge variant={statusVariant[item.status]} className="text-[10px]">
-                      {item.status}
-                    </Badge>
-                  </div>
-                  <p className="truncate text-sm font-medium">{item.user}</p>
-                  <p className="text-xs text-muted-foreground">{item.action}</p>
-                </div>
-                <div className="shrink-0 text-right">
-                  <p className="font-mono text-sm font-medium">{item.amount}</p>
-                  <p className="text-xs text-muted-foreground">{item.time}</p>
-                </div>
-              </div>
-            ))}
+        <nav className="hidden lg:flex items-center gap-7">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link}
+              href="#"
+              className="text-white/80 hover:text-white text-sm transition-colors whitespace-nowrap"
+            >
+              {link}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-1 text-white/80 text-sm cursor-pointer hover:text-white transition-colors">
+            <span className="w-4 h-4 text-white/60"><Globe size={16} /></span>
+            <span>EN</span>
+            <ChevronDown size={14} />
           </div>
-        </CardContent>
-      </Card>
+          <div className="w-px h-4 bg-white/30 hidden sm:block" />
+          <a
+            href="#"
+            className="border border-white/60 hover:border-white text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
+          >
+            Contact
+          </a>
+        </div>
+      </header>
+
+      {/* Hero Content */}
+      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-8 pb-0">
+        <h1 className="text-heading-1 text-white max-w-3xl">
+          Strategic Advisory for Governance,
+        </h1>
+        <h2 className="text-heading-2 text-white/90 mt-3 max-w-2xl">
+          Security and Corporate Risk
+        </h2>
+        <p className="mt-6 text-body text-white/70 max-w-xl leading-relaxed">
+          Supporting organisations, investors and leadership teams in managing
+          governance, operational and security risks across complex environments.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="#"
+            className="flex items-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
+          >
+            Request Introduction
+            <ArrowRight size={16} />
+          </a>
+          <a
+            href="#"
+            className="flex items-center gap-2 border border-white/50 hover:border-white text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
+          >
+            View Our Advisory Services
+            <ArrowRight size={16} />
+          </a>
+        </div>
+      </section>
+
+      {/* World Map */}
+      <div className="w-full flex justify-center mt-16 overflow-hidden select-none pointer-events-none">
+        <div className="relative w-full max-w-4xl px-8">
+          <div
+            className="absolute inset-x-0 bottom-0 h-40"
+            style={{
+              background: "linear-gradient(to bottom, transparent, var(--gradient-primary-to))",
+            }}
+          />
+          <Image
+            src="/globe.svg"
+            alt="World map"
+            width={900}
+            height={420}
+            className="w-full opacity-30"
+            priority
+          />
+        </div>
+      </div>
+
     </div>
   )
 }

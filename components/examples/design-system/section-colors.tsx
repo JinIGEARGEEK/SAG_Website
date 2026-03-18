@@ -50,6 +50,17 @@ const HOVER_COLORS: SwatchDef[] = [
   { token: "error-hover", cssVar: "--color-error-hover" },
 ]
 
+const GRADIENT_DEFS = [
+  {
+    name: "primary-gradient",
+    cssVar: "--gradient-primary",
+    fromVar: "--gradient-primary-from",
+    toVar: "--gradient-primary-to",
+  },
+]
+
+const GRADIENT_TOKEN_NAMES = GRADIENT_DEFS.flatMap((g) => [g.fromVar, g.toVar])
+
 const SHADOW_DEFS = [
   { token: "shadow-1", cssVar: "--shadow-1", desc: "Blur 8px, y: -4" },
   { token: "shadow-2", cssVar: "--shadow-2", desc: "Blur 10px, y: +4" },
@@ -61,7 +72,7 @@ const ALL_TOKEN_NAMES = [
   ...NEUTRAL_COLORS,
   ...BG_COLORS,
   ...HOVER_COLORS,
-].map((s) => s.cssVar)
+].map((s) => s.cssVar).concat(GRADIENT_TOKEN_NAMES)
 
 function ColorGrid({
   swatches,
@@ -124,6 +135,35 @@ export function SectionColors() {
       <DemoCard>
         <SectionLabel>Hover</SectionLabel>
         <ColorGrid swatches={HOVER_COLORS} tokens={tokens} />
+      </DemoCard>
+
+      {/* Gradients */}
+      <SubTitle>Gradients</SubTitle>
+      <DemoCard>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {GRADIENT_DEFS.map((g) => (
+            <div key={g.name}>
+              <div
+                className="h-32 rounded-xl mb-3"
+                style={{ background: `var(${g.cssVar})` }}
+              />
+              <div className="text-body-small font-semibold mb-1">{g.name}</div>
+              <div className="flex items-center gap-2 text-body-tiny text-dark-gray">
+                <span
+                  className="inline-block w-3 h-3 rounded-full shrink-0 border border-light-gray-2"
+                  style={{ backgroundColor: `var(${g.fromVar})` }}
+                />
+                <span>{tokens[g.fromVar] || ""}</span>
+                <span className="text-gray">→</span>
+                <span
+                  className="inline-block w-3 h-3 rounded-full shrink-0 border border-light-gray-2"
+                  style={{ backgroundColor: `var(${g.toVar})` }}
+                />
+                <span>{tokens[g.toVar] || ""}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </DemoCard>
 
       {/* Shadows */}

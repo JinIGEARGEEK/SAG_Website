@@ -63,17 +63,8 @@
   --color-warning-hover:    var(--color-warning-hover);
   --color-error:           var(--color-error);
   --color-error-hover:     var(--color-error-hover);
-  --color-success-toast:    var(--color-success-toast);
-  --color-success-toast-bg: var(--color-success-toast-bg);
-  --color-info-toast:       var(--color-info-toast);
-  --color-info-toast-bg:    var(--color-info-toast-bg);
-  --color-warning-toast:    var(--color-warning-toast);
-  --color-warning-toast-bg: var(--color-warning-toast-bg);
-  --color-error-toast:     var(--color-error-toast);
-  --color-error-toast-bg:  var(--color-error-toast-bg);
   --color-shadow-1:         var(--color-shadow-1);
   --color-shadow-2:         var(--color-shadow-2);
-  --color-primary-opacity:  var(--color-primary-opacity);
   --color-light-gray-1:     var(--color-light-gray-1);
   --color-light-gray-2:     var(--color-light-gray-2);
   --color-gray:             var(--color-gray);
@@ -133,7 +124,10 @@
     @apply border-border outline-ring/50;
   }
   body {
+    --font-family: var(--font-inter), 'Inter', sans-serif;
+    --font-heading: var(--font-playfair), 'Playfair Display', serif;
     @apply bg-background text-foreground;
+    font-family: var(--font-family);
   }
   .material-symbols-rounded {
     font-family: var(--icon-font-family);
@@ -153,19 +147,24 @@
 }
 
 @layer utilities {
-  .text-title-1      { font-size: var(--font-title-1-size);   line-height: var(--font-title-1-lh);   font-weight: var(--font-title-1-weight); }
-  .text-title-2      { font-size: var(--font-title-2-size);   line-height: var(--font-title-2-lh);   font-weight: var(--font-title-2-weight); }
-  .text-title-3      { font-size: var(--font-title-3-size);   line-height: var(--font-title-3-lh);   font-weight: var(--font-title-3-weight); }
-  .text-title-4      { font-size: var(--font-title-4-size);   line-height: var(--font-title-4-lh);   font-weight: var(--font-title-4-weight); }
-  .text-title-5      { font-size: var(--font-title-5-size);   line-height: var(--font-title-5-lh);   font-weight: var(--font-title-5-weight); }
-  .text-title-6      { font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-6-weight); }
-  .text-subtitle     { font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-5-weight); }
-  .text-body         { font-size: var(--font-body-size);      line-height: var(--font-body-lh);      font-weight: var(--font-body-weight); }
-  .text-body-small   { font-size: var(--font-body-sm-size);   line-height: var(--font-body-sm-lh);   font-weight: var(--font-body-sm-weight); }
-  .text-body-tiny    { font-size: var(--font-body-xs-size);   line-height: var(--font-body-xs-lh);   font-weight: var(--font-body-xs-weight); }
-  .text-button       { font-size: var(--font-button-size);    line-height: var(--font-button-lh);    font-weight: var(--font-button-weight); }
-  .text-button-small { font-size: var(--font-button-sm-size); line-height: var(--font-button-sm-lh); font-weight: var(--font-button-sm-weight); }
-  .text-link         { font-size: var(--font-link-size);      line-height: var(--font-link-lh);      font-weight: var(--font-link-weight); }
+  .text-title-1      { font-family: var(--font-family); font-size: var(--font-title-1-size);   line-height: var(--font-title-1-lh);   font-weight: var(--font-title-1-weight); }
+  .text-title-2      { font-family: var(--font-family); font-size: var(--font-title-2-size);   line-height: var(--font-title-2-lh);   font-weight: var(--font-title-2-weight); }
+  .text-title-3      { font-family: var(--font-family); font-size: var(--font-title-3-size);   line-height: var(--font-title-3-lh);   font-weight: var(--font-title-3-weight); }
+  .text-title-4      { font-family: var(--font-family); font-size: var(--font-title-4-size);   line-height: var(--font-title-4-lh);   font-weight: var(--font-title-4-weight); }
+  .text-title-5      { font-family: var(--font-family); font-size: var(--font-title-5-size);   line-height: var(--font-title-5-lh);   font-weight: var(--font-title-5-weight); }
+  .text-title-6      { font-family: var(--font-family); font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-6-weight); }
+  .text-subtitle     { font-family: var(--font-family); font-size: var(--font-title-6-size);   line-height: var(--font-title-6-lh);   font-weight: var(--font-title-5-weight); }
+  .text-body         { font-family: var(--font-family); font-size: var(--font-body-size);      line-height: var(--font-body-lh);      font-weight: var(--font-body-weight); }
+  .text-body-small   { font-family: var(--font-family); font-size: var(--font-body-sm-size);   line-height: var(--font-body-sm-lh);   font-weight: var(--font-body-sm-weight); }
+  .text-body-tiny    { font-family: var(--font-family); font-size: var(--font-body-xs-size);   line-height: var(--font-body-xs-lh);   font-weight: var(--font-body-xs-weight); }
+  .text-button       { font-family: var(--font-family); font-size: var(--font-button-size);    line-height: var(--font-button-lh);    font-weight: var(--font-button-weight); }
+  .text-button-small { font-family: var(--font-family); font-size: var(--font-button-sm-size); line-height: var(--font-button-sm-lh); font-weight: var(--font-button-sm-weight); }
+  .text-link         { font-family: var(--font-family); font-size: var(--font-link-size);      line-height: var(--font-link-lh);      font-weight: var(--font-link-weight); }
+  .text-heading-1    { font-family: var(--font-heading); font-size: var(--font-heading-1-size); line-height: var(--font-heading-1-lh); font-weight: var(--font-heading-1-weight); }
+  .text-heading-2    { font-family: var(--font-heading); font-size: var(--font-heading-2-size); line-height: var(--font-heading-2-lh); font-weight: var(--font-heading-2-weight); }
+
+  /* Gradient utilities */
+  .bg-gradient-primary { background: var(--gradient-primary); }
 
   /* Text field — token-driven */
   .ds-input {
@@ -221,6 +220,12 @@
     color: var(--input-error-color);
     padding-top: var(--input-error-padding-top);
     padding-right: var(--input-error-padding-right);
+  }
+
+  /* Mobile heading overrides */
+  @media (max-width: 767px) {
+    .text-heading-1 { font-size: var(--font-heading-1-mobile-size); line-height: var(--font-heading-1-mobile-lh); font-weight: var(--font-heading-1-mobile-weight); }
+    .text-heading-2 { font-size: var(--font-heading-2-mobile-size); line-height: var(--font-heading-2-mobile-lh); font-weight: var(--font-heading-2-mobile-weight); }
   }
 
   /* Mobile title overrides */

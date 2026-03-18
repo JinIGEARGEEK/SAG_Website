@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Prompt } from "next/font/google"
+import { Inter, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/providers/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
@@ -7,10 +7,16 @@ import { Toaster } from "@/components/ui/sonner"
 import { getLocale, getMessages } from "next-intl/server"
 import { NextIntlClientProvider } from "next-intl"
 
-const prompt = Prompt({
-  variable: "--font-prompt",
-  subsets: ["latin", "thai"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+})
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["600"],
 })
 
 
@@ -28,7 +34,7 @@ export default async function RootLayout({
   const messages = await getMessages()
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${prompt.variable} antialiased`}>
+      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
             <TooltipProvider>
