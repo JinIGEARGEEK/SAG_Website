@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { ChevronDown, Globe, ArrowRight } from "lucide-react"
+import { ChevronDown, Globe, ArrowRight, Briefcase, Shield, ShieldCheck, RefreshCw } from "lucide-react"
 
 const NAV_LINKS = [
   "Home",
@@ -13,6 +13,7 @@ const NAV_LINKS = [
 
 export default function HomePage() {
   return (
+    <>
     <div className="relative min-h-screen flex flex-col" style={{ background: "var(--gradient-primary)" }}>
 
       {/* Hero Map Background */}
@@ -97,7 +98,68 @@ export default function HomePage() {
         </div>
       </section>
 
-
     </div>
+
+      {/* ===== SECTION 2 — Situations We Handle ===== */}
+      <section className="bg-white py-20 lg:py-28">
+        <div className="site-container">
+
+          {/* Heading */}
+          <div className="text-center mb-16">
+            <h2 className="text-heading-2 text-primary mb-4">
+              Situations We Handle
+            </h2>
+            <p className="text-body text-dark-gray max-w-2xl mx-auto">
+              Organisations typically engage Stern Advisory Global when they require independent advisory
+              support in addressing complex organisational or operational challenges.
+            </p>
+          </div>
+
+          {/* 4-column grid with dividers */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            {SITUATIONS.map((item, i) => (
+              <div
+                key={item.title}
+                className={`lg:px-8 py-6 lg:py-2 ${i < SITUATIONS.length - 1 ? "lg:border-r border-light-gray-2" : ""} ${i < 2 ? "sm:border-b lg:border-b-0 border-light-gray-2" : ""}`}
+              >
+                <div className="w-12 h-12 rounded-lg bg-secondary-bg flex items-center justify-center mb-8">
+                  <item.Icon size={22} style={{ color: 'var(--color-secondary)' }} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
+                <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+    </>
   )
 }
+
+const SITUATIONS = [
+  {
+    Icon: Briefcase,
+    title: "Governance",
+    description:
+      "Supporting organisations, investors and leadership teams in managing governance, compliance and board-level challenges.",
+  },
+  {
+    Icon: Shield,
+    title: "Security",
+    description:
+      "Supporting organisations, investors and leadership teams in managing security risks and threat environments.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Risk Advisory",
+    description:
+      "Supporting organisations, investors and leadership teams in managing governance, operational and strategic risk.",
+  },
+  {
+    Icon: RefreshCw,
+    title: "Operational Resilience",
+    description:
+      "Supporting organisations, investors and leadership teams in maintaining continuity and operational resilience.",
+  },
+]
