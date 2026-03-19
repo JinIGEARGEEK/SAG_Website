@@ -1,20 +1,20 @@
 import Image from "next/image"
-import { ChevronDown, Globe, ArrowRight, Briefcase, Shield, ShieldCheck, RefreshCw } from "lucide-react"
-
-const NAV_LINKS = [
-  "Home",
-  "About",
-  "Situations",
-  "Advisory Services",
-  "Sectors",
-  "Global Presence",
-  "Leadership",
-]
+import { ArrowRight, ArrowUpRight, Briefcase, Shield, ShieldCheck, RefreshCw } from "lucide-react"
+import { SiteNavbar } from "@/components/layout/site-navbar"
+import { FadeIn } from "@/components/ui/fade-in"
+import { SectorsSection } from "@/components/sections/sectors-section"
+import { GlobalPresenceSection } from "@/components/sections/global-presence-section"
+import { LeadershipSection } from "@/components/sections/leadership-section"
+import { ContactSection } from "@/components/sections/contact-section"
+import { FooterSection } from "@/components/sections/footer-section"
 
 export default function HomePage() {
   return (
     <>
-    <div className="relative min-h-screen flex flex-col" style={{ background: "var(--gradient-primary)" }}>
+    {/* Sticky Navbar */}
+    <SiteNavbar />
+
+    <div id="hero" className="relative min-h-[90vh] flex flex-col" style={{ background: "var(--gradient-primary)" }}>
 
       {/* Hero Map Background */}
       <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
@@ -27,46 +27,8 @@ export default function HomePage() {
         />
       </div>
 
-      {/* Navbar */}
-      <header className="relative z-10 w-full py-5">
-        <div className="site-container flex items-center justify-between">
-        <span className="text-white font-bold text-sm tracking-[0.15em] uppercase select-none">
-          Stern Advisory Global
-        </span>
-
-        <div className="hidden lg:flex items-center gap-6">
-          <nav className="flex items-center gap-6">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-white/80 hover:text-white text-sm transition-colors whitespace-nowrap"
-              >
-                {link}
-              </a>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1 text-white/80 text-sm cursor-pointer hover:text-white transition-colors">
-              <Globe size={16} className="text-white/60" />
-              <span>EN</span>
-              <ChevronDown size={14} />
-            </div>
-            <div className="w-px h-4 bg-white/30" />
-            <a
-              href="#"
-              className="border border-white/60 hover:border-white hover:bg-white/20 text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
-        </div>
-      </header>
-
       {/* Hero Content */}
-      <section className="relative z-10 flex-1 flex flex-col items-center justify-center text-center pt-8 pb-0">
+      <section className="relative z-10 flex-1 flex flex-col items-center justify-center text-center pt-24 pb-0">
         <div className="site-container flex flex-col items-center">
         <h1 className="text-heading-1 text-white max-w-3xl">
           Strategic Advisory for Governance,
@@ -79,17 +41,17 @@ export default function HomePage() {
           governance, operational and security risks across complex environments.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+        <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
           <a
-            href="#"
-            className="flex items-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
+            href="#contact"
+            className="flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
           >
             Request Introduction
             <ArrowRight size={16} />
           </a>
           <a
-            href="#"
-            className="flex items-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
+            href="#advisory"
+            className="flex items-center justify-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
           >
             View Our Advisory Services
             <ArrowRight size={16} />
@@ -101,65 +63,159 @@ export default function HomePage() {
     </div>
 
       {/* ===== SECTION 2 — Situations We Handle ===== */}
-      <section className="bg-white py-20 lg:py-28">
+      <section id="about" className="bg-white py-20 lg:py-28">
         <div className="site-container">
 
-          {/* Heading */}
-          <div className="text-center mb-16">
-            <h2 className="text-heading-2 text-primary mb-4">
-              Situations We Handle
-            </h2>
-            <p className="text-body text-dark-gray max-w-2xl mx-auto">
-              Organisations typically engage Stern Advisory Global when they require independent advisory
-              support in addressing complex organisational or operational challenges.
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-heading-2 text-primary mb-1">About Stern Advisory Global</h2>
+              <p className="text-body text-dark-gray max-w-2xl mx-auto">
+                Stern Advisory Global provides strategic advisory services to organisations operating across complex
+                regulatory, governance and operational environments.
+              </p>
+            </div>
+          </FadeIn>
 
-          {/* 4-column grid with dividers */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             {SITUATIONS.map((item, i) => (
-              <div
-                key={item.title}
-                className={`lg:px-8 py-6 lg:py-2 ${i < SITUATIONS.length - 1 ? "lg:border-r border-light-gray-2" : ""} ${i < 2 ? "sm:border-b lg:border-b-0 border-light-gray-2" : ""}`}
-              >
-                <div className="w-12 h-12 rounded-lg bg-secondary-bg flex items-center justify-center mb-8">
-                  <item.Icon size={22} style={{ color: 'var(--color-secondary)' }} strokeWidth={1.5} />
+              <FadeIn key={item.title} delay={i * 80}>
+                <div
+                  className={`lg:px-8 py-6 lg:py-2 ${i < SITUATIONS.length - 1 ? "lg:border-r border-light-gray-2" : ""} ${i < 2 ? "sm:border-b lg:border-b-0 border-light-gray-2" : ""}`}
+                >
+                  <div className="w-12 h-12 rounded-lg bg-secondary-bg flex items-center justify-center mb-8">
+                    <item.Icon size={22} style={{ color: 'var(--color-secondary)' }} strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
+                  <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
                 </div>
-                <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
-                <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
 
         </div>
       </section>
 
-      {/* ===== SECTION 3 — Advisory Services ===== */}
-      <section className="pt-20 lg:pt-28" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
+      {/* ===== SECTION 3 — Advisory Services Grid ===== */}
+      <section id="situations" className="pt-20 lg:pt-28" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
 
-        {/* Heading */}
-        <div className="site-container text-center mb-16">
-          <h2 className="text-heading-2 text-primary mb-4">Advisory Services</h2>
-          <p className="text-body text-dark-gray max-w-2xl mx-auto">
-            We provide a broad range of advisory services tailored to the specific needs
-            of organisations operating in complex and dynamic environments.
-          </p>
-        </div>
+        <FadeIn>
+          <div className="site-container text-center mb-16">
+            <h2 className="text-heading-2 text-primary mb-1">Situations Where Clients Seek Our Support</h2>
+            <p className="text-body text-dark-gray max-w-2xl mx-auto">
+              Organisations typically engage Stern Advisory Global when they require independent advisory
+              support in addressing complex organisational or operational challenges.
+            </p>
+          </div>
+        </FadeIn>
 
-        {/* Full-width 3×2 grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-light-gray-2">
-          {ADVISORY_SERVICES.map((item) => (
-            <div key={item.title} className="border-b border-r border-light-gray-2 px-10 py-12 lg:px-16 lg:py-14">
-              <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
-              <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-light-gray-2">
+          {ADVISORY_SERVICES.map((item, i) => (
+            <FadeIn key={item.title} delay={i * 60}>
+              <div className="border-b border-r border-light-gray-2 px-10 py-12 lg:px-14 lg:py-14 h-full">
+                <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
+                <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
 
       </section>
+
+      {/* ===== SECTION 4 — Advisory Services (Dark) ===== */}
+      <section id="advisory" className="py-20 lg:py-28" style={{ background: "var(--gradient-primary)" }}>
+        <div className="site-container">
+
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="text-heading-2 text-white mb-1">Advisory Services</h2>
+              <p className="text-body max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.65)" }}>
+                Supporting organisations, investors and leadership teams in managing governance,
+                operational and security risks across complex environments.
+              </p>
+            </div>
+          </FadeIn>
+
+          <div className="flex flex-col">
+            {ADVISORY_SERVICES_DARK.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 80}>
+                <div
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-10 lg:py-12 ${i > 0 ? "border-t" : ""}`}
+                  style={{ borderColor: "rgba(255,255,255,0.12)" }}
+                >
+                  <div className="flex items-start gap-6">
+                    <span className="text-title-3 text-white shrink-0">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="text-title-3 text-white">{item.title}</h3>
+                  </div>
+                  <div className="lg:pl-4">
+                    <p className="text-body-small text-white leading-relaxed mb-4">
+                      {item.description}
+                    </p>
+                    <a
+                      href="#"
+                      className="inline-flex items-center gap-1.5 text-body-small text-white underline underline-offset-4 hover:opacity-80 transition-opacity"
+                    >
+                      Explore services
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ===== SECTION 5 — Sectors We Serve ===== */}
+      <div id="sectors">
+        <SectorsSection />
+      </div>
+
+      {/* ===== SECTION 6 — International Presence ===== */}
+      <div id="presence">
+        <GlobalPresenceSection />
+      </div>
+
+      {/* ===== SECTION 7 — Leadership ===== */}
+      <div id="leadership">
+        <LeadershipSection />
+      </div>
+
+      {/* ===== SECTION 8 — Contact ===== */}
+      <div id="contact">
+        <ContactSection />
+      </div>
+
+      {/* ===== FOOTER ===== */}
+      <FooterSection />
     </>
   )
 }
+
+const ADVISORY_SERVICES_DARK = [
+  {
+    title: "Corporate Risk & Due Diligence",
+    description:
+      "Develop comprehensive strategies aligned with your business goals. We assess governance frameworks, compliance structures and risk exposure to support sound decision-making.",
+  },
+  {
+    title: "Governance & Integrity Advisory",
+    description:
+      "Develop comprehensive strategies aligned with your business goals. We help organisations strengthen board governance, integrity frameworks and institutional accountability.",
+  },
+  {
+    title: "Security & Operational Resilience",
+    description:
+      "Develop comprehensive strategies aligned with your business goals. We advise on physical security, crisis preparedness and the continuity of critical operations.",
+  },
+  {
+    title: "Cyber Security Advisory",
+    description:
+      "Develop comprehensive strategies aligned with your business goals. We provide strategic guidance on cyber risk, threat intelligence and digital security governance.",
+  },
+]
 
 const ADVISORY_SERVICES = [
   {
