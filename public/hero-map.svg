@@ -1,0 +1,499 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2818 780" width="2818" height="780">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0A1F3C"/>
+      <stop offset="100%" stop-color="#122d56"/>
+    </linearGradient>
+
+    <!-- Line glow -->
+    <filter id="fglow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3" result="b1"/>
+      <feGaussianBlur stdDeviation="1" result="b2"/>
+      <feMerge><feMergeNode in="b1"/><feMergeNode in="b2"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Strong node glow -->
+    <filter id="fnodeglow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Soft area glow -->
+    <filter id="fareasoft" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+
+    <!-- Map dot glow -->
+    <filter id="fdotglow" x="-150%" y="-150%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Center radial for negative space -->
+    <radialGradient id="centerDim" cx="50%" cy="42%" r="32%">
+      <stop offset="0%" stop-color="#0d2650" stop-opacity="0.88"/>
+      <stop offset="70%" stop-color="#0A1F3C" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0A1F3C" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Bottom fade -->
+    <linearGradient id="fadeB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1F3C" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0e2448" stop-opacity="1"/>
+    </linearGradient>
+
+    <!-- Left fade -->
+    <linearGradient id="fadeL" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0A1F3C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0A1F3C" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Right fade -->
+    <linearGradient id="fadeR" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0A1F3C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0A1F3C" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Top fade -->
+    <linearGradient id="fadeT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1F3C" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#0A1F3C" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2818" height="780" fill="url(#bg)"/>
+
+  <!-- ===== WORLD MAP LANDMASSES ===== -->
+  <!-- Map centered around x=1409 (mid), y≈450 (lower half) -->
+  <!-- Scale: roughly 14px per degree longitude, 9px per degree latitude, centered 0°lon=1409, 0°lat=500 -->
+
+  <g opacity="0.18" fill="#5599dd">
+
+    <!-- NORTH AMERICA -->
+    <path d="
+      M 430 295 C 445 280 470 272 495 270
+      C 520 268 548 272 560 285
+      C 572 298 568 318 558 332
+      C 548 346 532 352 520 362
+      C 508 372 500 386 492 398
+      C 484 410 478 424 465 432
+      C 452 440 436 440 425 430
+      C 414 420 410 405 405 390
+      C 400 375 400 358 398 342
+      C 396 326 395 312 405 300
+      Z
+      M 555 268 C 570 258 592 255 610 262
+      C 628 269 638 284 632 298
+      C 626 312 608 318 592 314
+      C 576 310 565 298 560 284
+      Z
+      M 490 440 C 505 432 524 432 532 442
+      C 540 452 534 468 522 472
+      C 510 476 496 470 490 460
+      Z
+    "/>
+
+    <!-- Greenland -->
+    <path d="
+      M 610 195 C 630 185 658 186 670 198
+      C 682 210 678 228 664 235
+      C 650 242 628 240 618 228
+      C 608 216 606 202 610 196
+      Z
+    "/>
+
+    <!-- SOUTH AMERICA -->
+    <path d="
+      M 508 462 C 522 452 542 450 555 460
+      C 568 470 570 490 562 508
+      C 554 526 540 538 532 555
+      C 524 572 522 592 515 608
+      C 508 624 498 636 488 638
+      C 478 640 468 632 462 618
+      C 456 604 454 586 452 568
+      C 450 550 450 530 452 512
+      C 454 494 458 476 468 465
+      Z
+    "/>
+
+    <!-- EUROPE -->
+    <path d="
+      M 1065 230 C 1082 218 1105 215 1120 225
+      C 1135 235 1138 255 1128 268
+      C 1118 281 1098 285 1082 276
+      C 1066 267 1060 248 1062 234
+      Z
+      M 1082 198 C 1095 190 1112 190 1120 200
+      C 1128 210 1124 225 1114 230
+      C 1104 235 1090 232 1084 222
+      C 1078 212 1078 202 1082 198
+      Z
+      M 1118 218 C 1138 210 1165 212 1178 225
+      C 1191 238 1188 258 1175 265
+      C 1162 272 1140 268 1128 255
+      C 1116 242 1112 224 1118 218
+      Z
+    "/>
+
+    <!-- Scandinavia -->
+    <path d="
+      M 1072 158 C 1085 148 1105 148 1115 160
+      C 1125 172 1120 190 1108 196
+      C 1096 202 1078 196 1072 184
+      C 1066 172 1066 164 1072 158
+      Z
+    "/>
+
+    <!-- UK -->
+    <path d="
+      M 1042 215 C 1052 208 1068 210 1074 220
+      C 1080 230 1075 244 1065 248
+      C 1055 252 1040 246 1038 235
+      C 1036 224 1038 218 1042 215
+      Z
+    "/>
+
+    <!-- AFRICA -->
+    <path d="
+      M 1082 290 C 1105 278 1138 278 1155 295
+      C 1172 312 1170 342 1158 368
+      C 1146 394 1128 412 1118 438
+      C 1108 464 1108 495 1098 518
+      C 1088 541 1072 555 1058 548
+      C 1044 541 1038 520 1034 498
+      C 1030 476 1030 452 1032 428
+      C 1034 404 1040 380 1048 358
+      C 1056 336 1065 315 1075 298
+      Z
+    "/>
+
+    <!-- MIDDLE EAST -->
+    <path d="
+      M 1195 268 C 1215 258 1245 260 1260 275
+      C 1275 290 1270 315 1255 325
+      C 1240 335 1215 332 1202 318
+      C 1189 304 1188 282 1195 268
+      Z
+    "/>
+
+    <!-- RUSSIA / EURASIA -->
+    <path d="
+      M 1165 128 C 1235 112 1365 108 1465 125
+      C 1565 142 1632 178 1658 212
+      C 1684 246 1672 285 1648 305
+      C 1624 325 1588 328 1555 322
+      C 1522 316 1492 300 1462 285
+      C 1432 270 1402 255 1368 245
+      C 1334 235 1295 232 1262 225
+      C 1229 218 1198 208 1178 192
+      C 1158 176 1148 150 1155 132
+      Z
+    "/>
+
+    <!-- SOUTH ASIA / INDIA -->
+    <path d="
+      M 1388 278 C 1408 268 1438 270 1452 285
+      C 1466 300 1462 325 1448 340
+      C 1434 355 1412 358 1398 346
+      C 1384 334 1380 312 1382 294
+      Z
+      M 1402 348 C 1412 342 1426 344 1432 354
+      C 1438 364 1432 378 1422 382
+      C 1412 386 1400 380 1396 370
+      C 1392 360 1394 352 1402 348
+      Z
+    "/>
+
+    <!-- SOUTHEAST ASIA -->
+    <path d="
+      M 1602 278 C 1628 268 1662 270 1678 288
+      C 1694 306 1688 335 1672 348
+      C 1656 361 1628 360 1614 344
+      C 1600 328 1598 305 1602 278
+      Z
+      M 1528 282 C 1548 272 1578 275 1590 292
+      C 1602 309 1595 335 1580 345
+      C 1565 355 1540 350 1530 334
+      C 1520 318 1518 295 1528 282
+      Z
+    "/>
+
+    <!-- CHINA / EAST ASIA -->
+    <path d="
+      M 1668 155 C 1738 138 1852 140 1908 165
+      C 1964 190 1968 232 1942 262
+      C 1916 292 1872 302 1832 298
+      C 1792 294 1756 278 1724 258
+      C 1692 238 1664 212 1655 185
+      Z
+    "/>
+
+    <!-- Japan -->
+    <path d="
+      M 1930 158 C 1948 150 1972 152 1982 165
+      C 1992 178 1986 198 1972 205
+      C 1958 212 1936 208 1928 195
+      C 1920 182 1918 164 1930 158
+      Z
+    "/>
+
+    <!-- AUSTRALIA -->
+    <path d="
+      M 1795 478 C 1845 462 1918 465 1955 492
+      C 1992 519 1992 562 1970 592
+      C 1948 622 1902 632 1860 622
+      C 1818 612 1782 585 1765 554
+      C 1748 523 1752 490 1768 478
+      Z
+    "/>
+
+    <!-- New Zealand -->
+    <path d="
+      M 2012 565 C 2024 558 2042 560 2050 572
+      C 2058 584 2052 600 2040 605
+      C 2028 610 2012 604 2008 592
+      C 2004 580 2005 569 2012 565
+      Z
+    "/>
+
+    <!-- Indonesia (partial) -->
+    <path d="
+      M 1672 368 C 1695 360 1728 362 1742 378
+      C 1756 394 1748 418 1732 425
+      C 1716 432 1688 428 1676 412
+      C 1664 396 1662 374 1672 368
+      Z
+      M 1752 372 C 1772 365 1802 368 1815 382
+      C 1828 396 1822 418 1808 425
+      C 1794 432 1765 428 1755 415
+      C 1745 402 1742 378 1752 372
+      Z
+    "/>
+  </g>
+
+  <!-- ===== CITY GLOW POOLS (very soft, wide glow under each hub) ===== -->
+  <g filter="url(#fareasoft)" opacity="0.35">
+    <circle cx="490" cy="312" r="28" fill="#5aaeff"/>
+    <circle cx="1092" cy="248" r="32" fill="#5aaeff"/>
+    <circle cx="1305" cy="292" r="26" fill="#5aaeff"/>
+    <circle cx="1415" cy="332" r="24" fill="#5aaeff"/>
+    <circle cx="1638" cy="312" r="28" fill="#5aaeff"/>
+    <circle cx="1782" cy="272" r="26" fill="#5aaeff"/>
+    <circle cx="1945" cy="178" r="26" fill="#5aaeff"/>
+    <circle cx="2195" cy="268" r="24" fill="#5aaeff"/>
+  </g>
+
+  <!-- ===== CONNECTION ARCS — solid with glow ===== -->
+  <g filter="url(#fglow)">
+    <!-- NY → London -->
+    <path d="M 490 312 Q 790 88 1092 248" fill="none" stroke="#c8e4ff" stroke-width="0.8" opacity="0.55"/>
+    <!-- London → Frankfurt -->
+    <path d="M 1092 248 Q 1118 228 1148 248" fill="none" stroke="#c8e4ff" stroke-width="0.7" opacity="0.45"/>
+    <!-- London → Dubai -->
+    <path d="M 1092 248 Q 1195 192 1305 292" fill="none" stroke="#c8e4ff" stroke-width="0.75" opacity="0.50"/>
+    <!-- London → Cape Town -->
+    <path d="M 1092 248 Q 1068 418 1048 528" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.38"/>
+    <!-- Dubai → Mumbai -->
+    <path d="M 1305 292 Q 1362 308 1415 332" fill="none" stroke="#c8e4ff" stroke-width="0.7" opacity="0.48"/>
+    <!-- Dubai → Singapore -->
+    <path d="M 1305 292 Q 1468 268 1638 312" fill="none" stroke="#c8e4ff" stroke-width="0.75" opacity="0.52"/>
+    <!-- Mumbai → Singapore -->
+    <path d="M 1415 332 Q 1522 308 1638 312" fill="none" stroke="#c8e4ff" stroke-width="0.7" opacity="0.45"/>
+    <!-- Singapore → HK -->
+    <path d="M 1638 312 Q 1712 272 1782 272" fill="none" stroke="#c8e4ff" stroke-width="0.75" opacity="0.52"/>
+    <!-- Singapore → Sydney -->
+    <path d="M 1638 312 Q 1732 448 1852 532" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.38"/>
+    <!-- HK → Tokyo -->
+    <path d="M 1782 272 Q 1862 208 1945 178" fill="none" stroke="#c8e4ff" stroke-width="0.75" opacity="0.52"/>
+    <!-- Tokyo → LA -->
+    <path d="M 1945 178 Q 2115 118 2195 268" fill="none" stroke="#c8e4ff" stroke-width="0.8" opacity="0.55"/>
+    <!-- LA → NY -->
+    <path d="M 2195 268 Q 1400 148 490 312" fill="none" stroke="#c8e4ff" stroke-width="0.6" opacity="0.28"/>
+    <!-- NY → São Paulo -->
+    <path d="M 490 312 Q 510 435 480 588" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.38"/>
+    <!-- London → Moscow -->
+    <path d="M 1092 248 Q 1235 188 1365 198" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.38"/>
+    <!-- Nairobi → Dubai -->
+    <path d="M 1218 448 Q 1265 368 1305 292" fill="none" stroke="#c8e4ff" stroke-width="0.6" opacity="0.35"/>
+    <!-- Frankfurt → Moscow -->
+    <path d="M 1148 248 Q 1255 212 1365 198" fill="none" stroke="#c8e4ff" stroke-width="0.6" opacity="0.35"/>
+    <!-- Chicago → London -->
+    <path d="M 548 272 Q 818 72 1092 248" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.38"/>
+    <!-- Seoul → Tokyo -->
+    <path d="M 1888 215 Q 1915 192 1945 178" fill="none" stroke="#c8e4ff" stroke-width="0.65" opacity="0.42"/>
+  </g>
+
+  <!-- ===== CITY NODES ===== -->
+  <g filter="url(#fnodeglow)">
+    <!-- New York — major hub -->
+    <circle cx="490" cy="312" r="4.5" fill="#ffffff" opacity="0.95"/>
+    <circle cx="490" cy="312" r="9" fill="#7ec8ff" opacity="0.35"/>
+    <circle cx="490" cy="312" r="18" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- London — major hub -->
+    <circle cx="1092" cy="248" r="5" fill="#ffffff" opacity="0.97"/>
+    <circle cx="1092" cy="248" r="10" fill="#7ec8ff" opacity="0.38"/>
+    <circle cx="1092" cy="248" r="22" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- Frankfurt -->
+    <circle cx="1148" cy="248" r="3.5" fill="#e8f4ff" opacity="0.88"/>
+    <circle cx="1148" cy="248" r="7" fill="#7ec8ff" opacity="0.28"/>
+
+    <!-- Moscow -->
+    <circle cx="1365" cy="198" r="3.5" fill="#e8f4ff" opacity="0.85"/>
+    <circle cx="1365" cy="198" r="7" fill="#7ec8ff" opacity="0.25"/>
+
+    <!-- Dubai — major hub -->
+    <circle cx="1305" cy="292" r="4.5" fill="#ffffff" opacity="0.95"/>
+    <circle cx="1305" cy="292" r="9" fill="#7ec8ff" opacity="0.35"/>
+    <circle cx="1305" cy="292" r="18" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- Mumbai -->
+    <circle cx="1415" cy="332" r="4" fill="#e8f4ff" opacity="0.90"/>
+    <circle cx="1415" cy="332" r="8" fill="#7ec8ff" opacity="0.30"/>
+
+    <!-- Nairobi -->
+    <circle cx="1218" cy="448" r="3" fill="#e8f4ff" opacity="0.80"/>
+    <circle cx="1218" cy="448" r="6" fill="#7ec8ff" opacity="0.22"/>
+
+    <!-- Cape Town -->
+    <circle cx="1048" cy="528" r="3" fill="#e8f4ff" opacity="0.78"/>
+    <circle cx="1048" cy="528" r="6" fill="#7ec8ff" opacity="0.20"/>
+
+    <!-- Singapore — major hub -->
+    <circle cx="1638" cy="312" r="5" fill="#ffffff" opacity="0.97"/>
+    <circle cx="1638" cy="312" r="10" fill="#7ec8ff" opacity="0.38"/>
+    <circle cx="1638" cy="312" r="22" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- Hong Kong -->
+    <circle cx="1782" cy="272" r="4.5" fill="#ffffff" opacity="0.92"/>
+    <circle cx="1782" cy="272" r="9" fill="#7ec8ff" opacity="0.32"/>
+    <circle cx="1782" cy="272" r="18" fill="#5aaeff" opacity="0.10"/>
+
+    <!-- Seoul -->
+    <circle cx="1888" cy="215" r="3.5" fill="#e8f4ff" opacity="0.88"/>
+    <circle cx="1888" cy="215" r="7" fill="#7ec8ff" opacity="0.26"/>
+
+    <!-- Tokyo — major hub -->
+    <circle cx="1945" cy="178" r="5" fill="#ffffff" opacity="0.97"/>
+    <circle cx="1945" cy="178" r="10" fill="#7ec8ff" opacity="0.38"/>
+    <circle cx="1945" cy="178" r="22" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- Sydney -->
+    <circle cx="1852" cy="532" r="3.5" fill="#e8f4ff" opacity="0.85"/>
+    <circle cx="1852" cy="532" r="7" fill="#7ec8ff" opacity="0.25"/>
+
+    <!-- Los Angeles — major hub -->
+    <circle cx="2195" cy="268" r="4.5" fill="#ffffff" opacity="0.95"/>
+    <circle cx="2195" cy="268" r="9" fill="#7ec8ff" opacity="0.35"/>
+    <circle cx="2195" cy="268" r="18" fill="#5aaeff" opacity="0.12"/>
+
+    <!-- Chicago -->
+    <circle cx="548" cy="272" r="3.5" fill="#e8f4ff" opacity="0.85"/>
+    <circle cx="548" cy="272" r="7" fill="#7ec8ff" opacity="0.26"/>
+
+    <!-- São Paulo -->
+    <circle cx="480" cy="588" r="3.5" fill="#e8f4ff" opacity="0.82"/>
+    <circle cx="480" cy="588" r="7" fill="#7ec8ff" opacity="0.22"/>
+
+    <!-- Mexico City -->
+    <circle cx="2238" cy="352" r="3" fill="#e8f4ff" opacity="0.80"/>
+    <circle cx="2238" cy="352" r="6" fill="#7ec8ff" opacity="0.20"/>
+  </g>
+
+  <!-- ===== MICRO DOTS (secondary cities / satellites) ===== -->
+  <g filter="url(#fdotglow)" opacity="0.6">
+    <!-- North America cluster -->
+    <circle cx="410" cy="288" r="1.8" fill="#9ed4ff"/>
+    <circle cx="352" cy="298" r="1.5" fill="#9ed4ff"/>
+    <circle cx="578" cy="248" r="1.8" fill="#9ed4ff"/>
+    <circle cx="622" cy="295" r="1.5" fill="#9ed4ff"/>
+    <circle cx="445" cy="248" r="1.5" fill="#9ed4ff"/>
+    <!-- Europe cluster -->
+    <circle cx="1025" cy="228" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1055" cy="208" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1168" cy="228" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1115" cy="218" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1195" cy="255" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1248" cy="252" r="1.8" fill="#9ed4ff"/>
+    <!-- Middle East / Asia cluster -->
+    <circle cx="1282" cy="265" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1348" cy="268" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1438" cy="298" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1475" cy="278" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1518" cy="295" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1558" cy="268" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1598" cy="285" r="1.5" fill="#9ed4ff"/>
+    <!-- East Asia cluster -->
+    <circle cx="1678" cy="252" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1728" cy="238" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1758" cy="255" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1818" cy="248" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1862" cy="192" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1908" cy="165" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1968" cy="192" r="1.8" fill="#9ed4ff"/>
+    <!-- Pacific / Americas -->
+    <circle cx="2075" cy="235" r="1.8" fill="#9ed4ff"/>
+    <circle cx="2138" cy="252" r="1.5" fill="#9ed4ff"/>
+    <circle cx="2258" cy="312" r="1.8" fill="#9ed4ff"/>
+    <circle cx="2308" cy="268" r="1.5" fill="#9ed4ff"/>
+    <circle cx="2368" cy="245" r="1.8" fill="#9ed4ff"/>
+    <circle cx="2448" cy="265" r="1.5" fill="#9ed4ff"/>
+    <!-- Scattered extras -->
+    <circle cx="692" cy="222" r="1.5" fill="#9ed4ff"/>
+    <circle cx="765" cy="198" r="1.8" fill="#9ed4ff"/>
+    <circle cx="848" cy="218" r="1.5" fill="#9ed4ff"/>
+    <circle cx="928" cy="232" r="1.8" fill="#9ed4ff"/>
+    <circle cx="975" cy="252" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1158" cy="432" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1098" cy="468" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1348" cy="408" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1688" cy="388" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1748" cy="408" r="1.5" fill="#9ed4ff"/>
+    <circle cx="1808" cy="452" r="1.8" fill="#9ed4ff"/>
+    <circle cx="1892" cy="498" r="1.5" fill="#9ed4ff"/>
+  </g>
+
+  <!-- ===== FLOATING PARTICLES ===== -->
+  <g opacity="0.3">
+    <circle cx="178" cy="248" r="1" fill="#aad8ff"/>
+    <circle cx="228" cy="338" r="0.8" fill="#aad8ff"/>
+    <circle cx="288" cy="198" r="1" fill="#aad8ff"/>
+    <circle cx="318" cy="362" r="0.8" fill="#aad8ff"/>
+    <circle cx="668" cy="165" r="1" fill="#aad8ff"/>
+    <circle cx="728" cy="295" r="0.8" fill="#aad8ff"/>
+    <circle cx="878" cy="178" r="1" fill="#aad8ff"/>
+    <circle cx="1008" cy="298" r="0.8" fill="#aad8ff"/>
+    <circle cx="1075" cy="148" r="1" fill="#aad8ff"/>
+    <circle cx="1218" cy="185" r="0.8" fill="#aad8ff"/>
+    <circle cx="1278" cy="345" r="1" fill="#aad8ff"/>
+    <circle cx="1398" cy="158" r="0.8" fill="#aad8ff"/>
+    <circle cx="1488" cy="232" r="1" fill="#aad8ff"/>
+    <circle cx="1578" cy="155" r="0.8" fill="#aad8ff"/>
+    <circle cx="1618" cy="362" r="1" fill="#aad8ff"/>
+    <circle cx="1698" cy="188" r="0.8" fill="#aad8ff"/>
+    <circle cx="1828" cy="152" r="1" fill="#aad8ff"/>
+    <circle cx="1988" cy="225" r="0.8" fill="#aad8ff"/>
+    <circle cx="2048" cy="152" r="1" fill="#aad8ff"/>
+    <circle cx="2118" cy="295" r="0.8" fill="#aad8ff"/>
+    <circle cx="2278" cy="198" r="1" fill="#aad8ff"/>
+    <circle cx="2418" cy="235" r="0.8" fill="#aad8ff"/>
+    <circle cx="2558" cy="255" r="1" fill="#aad8ff"/>
+    <circle cx="2648" cy="225" r="0.8" fill="#aad8ff"/>
+    <circle cx="2748" cy="268" r="1" fill="#aad8ff"/>
+  </g>
+
+  <!-- ===== OVERLAY FADES ===== -->
+  <!-- Center negative space (for headline + CTA) -->
+  <rect x="750" y="0" width="1318" height="780" fill="url(#centerDim)"/>
+
+  <!-- Left vignette -->
+  <rect x="0" y="0" width="320" height="780" fill="url(#fadeL)"/>
+  <!-- Right vignette -->
+  <rect x="2498" y="0" width="320" height="780" fill="url(#fadeR)"/>
+  <!-- Top vignette -->
+  <rect x="0" y="0" width="2818" height="145" fill="url(#fadeT)"/>
+  <!-- Bottom fade -->
+  <rect x="0" y="560" width="2818" height="220" fill="url(#fadeB)"/>
+</svg>

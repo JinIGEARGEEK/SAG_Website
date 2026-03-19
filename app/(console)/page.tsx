@@ -13,44 +13,60 @@ const NAV_LINKS = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col" style={{ background: "var(--gradient-primary)" }}>
+    <div className="relative min-h-screen flex flex-col" style={{ background: "var(--gradient-primary)" }}>
+
+      {/* Hero Map Background */}
+      <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
+        <Image
+          src="/hero-map.svg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
 
       {/* Navbar */}
-      <header className="w-full px-8 py-5 flex items-center justify-between">
+      <header className="relative z-10 w-full py-5">
+        <div className="site-container flex items-center justify-between">
         <span className="text-white font-bold text-sm tracking-[0.15em] uppercase select-none">
           Stern Advisory Global
         </span>
 
-        <nav className="hidden lg:flex items-center gap-7">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="text-white/80 hover:text-white text-sm transition-colors whitespace-nowrap"
-            >
-              {link}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden lg:flex items-center gap-6">
+          <nav className="flex items-center gap-6">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link}
+                href="#"
+                className="text-white/80 hover:text-white text-sm transition-colors whitespace-nowrap"
+              >
+                {link}
+              </a>
+            ))}
+          </nav>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden sm:flex items-center gap-1 text-white/80 text-sm cursor-pointer hover:text-white transition-colors">
-            <span className="w-4 h-4 text-white/60"><Globe size={16} /></span>
-            <span>EN</span>
-            <ChevronDown size={14} />
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1 text-white/80 text-sm cursor-pointer hover:text-white transition-colors">
+              <Globe size={16} className="text-white/60" />
+              <span>EN</span>
+              <ChevronDown size={14} />
+            </div>
+            <div className="w-px h-4 bg-white/30" />
+            <a
+              href="#"
+              className="border border-white/60 hover:border-white hover:bg-white/20 text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
+            >
+              Contact
+            </a>
           </div>
-          <div className="w-px h-4 bg-white/30 hidden sm:block" />
-          <a
-            href="#"
-            className="border border-white/60 hover:border-white text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
-          >
-            Contact
-          </a>
+        </div>
         </div>
       </header>
 
       {/* Hero Content */}
-      <section className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-8 pb-0">
+      <section className="relative z-10 flex-1 flex flex-col items-center justify-center text-center pt-8 pb-0">
+        <div className="site-container flex flex-col items-center">
         <h1 className="text-heading-1 text-white max-w-3xl">
           Strategic Advisory for Governance,
         </h1>
@@ -72,33 +88,15 @@ export default function HomePage() {
           </a>
           <a
             href="#"
-            className="flex items-center gap-2 border border-white/50 hover:border-white text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
+            className="flex items-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
           >
             View Our Advisory Services
             <ArrowRight size={16} />
           </a>
         </div>
+        </div>
       </section>
 
-      {/* World Map */}
-      <div className="w-full flex justify-center mt-16 overflow-hidden select-none pointer-events-none">
-        <div className="relative w-full max-w-4xl px-8">
-          <div
-            className="absolute inset-x-0 bottom-0 h-40"
-            style={{
-              background: "linear-gradient(to bottom, transparent, var(--gradient-primary-to))",
-            }}
-          />
-          <Image
-            src="/globe.svg"
-            alt="World map"
-            width={900}
-            height={420}
-            className="w-full opacity-30"
-            priority
-          />
-        </div>
-      </div>
 
     </div>
   )

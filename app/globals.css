@@ -163,6 +163,16 @@
   .text-heading-1    { font-family: var(--font-heading); font-size: var(--font-heading-1-size); line-height: var(--font-heading-1-lh); font-weight: var(--font-heading-1-weight); }
   .text-heading-2    { font-family: var(--font-heading); font-size: var(--font-heading-2-size); line-height: var(--font-heading-2-lh); font-weight: var(--font-heading-2-weight); }
 
+  /* Site container */
+  .site-container {
+    max-width: var(--site-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--site-padding-x);
+    padding-right: var(--site-padding-x);
+    width: 100%;
+  }
+
   /* Gradient utilities */
   .bg-gradient-primary { background: var(--gradient-primary); }
 

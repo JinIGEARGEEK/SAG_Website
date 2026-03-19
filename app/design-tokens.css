@@ -36,6 +36,10 @@
   --color-warning-bg:   #FAF6E4;
   --color-error-bg:     #F7E4E2;
 
+  /* Layout */
+  --site-max-width: 1240px;
+  --site-padding-x: 2.5rem;
+
   /* Gradients */
   --gradient-primary-from: #0A1F3C;
   --gradient-primary-to:   #1A3E6D;
