@@ -133,9 +133,66 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      {/* ===== SECTION 3 — Advisory Services ===== */}
+      <section className="pt-20 lg:pt-28" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
+
+        {/* Heading */}
+        <div className="site-container text-center mb-16">
+          <h2 className="text-heading-2 text-primary mb-4">Advisory Services</h2>
+          <p className="text-body text-dark-gray max-w-2xl mx-auto">
+            We provide a broad range of advisory services tailored to the specific needs
+            of organisations operating in complex and dynamic environments.
+          </p>
+        </div>
+
+        {/* Full-width 3×2 grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-light-gray-2">
+          {ADVISORY_SERVICES.map((item) => (
+            <div key={item.title} className="border-b border-r border-light-gray-2 px-10 py-12 lg:px-16 lg:py-14">
+              <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
+              <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
+            </div>
+          ))}
+        </div>
+
+      </section>
     </>
   )
 }
+
+const ADVISORY_SERVICES = [
+  {
+    title: "Market Entry",
+    description:
+      "Supporting organisations, investors and leadership teams in assessing and navigating new market opportunities.",
+  },
+  {
+    title: "Digital Transformation",
+    description:
+      "Supporting organisations, investors and leadership teams in managing technology-driven change and digital risk.",
+  },
+  {
+    title: "Operational Excellence",
+    description:
+      "Supporting organisations, investors and leadership teams in optimising processes and operational performance.",
+  },
+  {
+    title: "Merger & Acquisition",
+    description:
+      "Supporting organisations, investors and leadership teams in due diligence, integration and transaction advisory.",
+  },
+  {
+    title: "Crisis Management",
+    description:
+      "Supporting organisations, investors and leadership teams in preparing for and responding to critical incidents.",
+  },
+  {
+    title: "Strategic Planning",
+    description:
+      "Supporting organisations, investors and leadership teams in developing and executing long-term strategic plans.",
+  },
+]
 
 const SITUATIONS = [
   {
