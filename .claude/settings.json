@@ -17,7 +17,9 @@
       "Read(//Users/igg/Desktop/stern_advisory_global/components/examples/design-system/**)",
       "Bash(grep -h \"useDesignTokens\\\\|CodeBlock\" /Users/igg/Desktop/stern_advisory_global/components/examples/design-system/*.tsx)",
       "Bash(grep -r globe /Users/igg/Desktop/stern_advisory_global --include=*.tsx --include=*.ts --include=*.css)",
-      "Bash(cat /Users/igg/Desktop/stern_advisory_global/app/\\\\\\(console\\\\\\)/layout.tsx)"
+      "Bash(cat /Users/igg/Desktop/stern_advisory_global/app/\\\\\\(console\\\\\\)/layout.tsx)",
+      "Bash(git checkout:*)",
+      "Bash(git stash:*)"
     ]
   }
 }

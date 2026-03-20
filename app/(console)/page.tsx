@@ -14,10 +14,10 @@ export default function HomePage() {
     {/* Sticky Navbar */}
     <SiteNavbar />
 
-    <div id="hero" className="relative flex flex-col overflow-hidden" style={{ background: "var(--gradient-primary)" }}>
+    <div id="hero" className="relative flex flex-col overflow-hidden">
 
-      {/* Hero Content */}
-      <section className="relative z-10 flex flex-col items-center justify-center text-center pt-36 pb-16">
+      {/* Plain color area for text */}
+      <section className="relative z-10 flex flex-col items-center justify-center text-center pt-36 pb-16" style={{ background: "var(--gradient-primary)" }}>
         <div className="site-container flex flex-col items-center">
           <h1 className="text-heading-1 text-white max-w-3xl">
             Strategic Advisory for Governance,
@@ -33,7 +33,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
             <a
               href="#contact"
-              className="flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
+              className="flex items-center justify-center gap-2 bg-white text-(--color-primary) text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
             >
               Request Introduction
               <ArrowRight size={16} />
@@ -49,14 +49,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* World map image — blends with hero background */}
-      <div className="relative w-full select-none pointer-events-none" style={{ height: "480px" }}>
-        <Image src="/hero-world-map.jpg" alt="" fill className="object-cover object-center" priority />
-        {/* Top fade — strong, covers ~60% so image emerges gradually */}
-        <div className="absolute inset-x-0 top-0 z-10" style={{ height: "65%", background: "linear-gradient(to bottom, #0A1F3C 0%, #0A1F3C 20%, rgba(10,31,60,0.85) 45%, rgba(10,31,60,0.4) 70%, transparent 100%)" }} />
-        {/* Side vignette */}
-        <div className="absolute inset-y-0 left-0 w-40 z-10" style={{ background: "linear-gradient(to right, #0A1F3C, transparent)" }} />
-        <div className="absolute inset-y-0 right-0 w-40 z-10" style={{ background: "linear-gradient(to left, #0A1F3C, transparent)" }} />
+      {/* Background image below text — fades from gradient into image */}
+      <div className="relative w-full select-none pointer-events-none" style={{ height: "380px" }}>
+        <Image src="/hero_bg.png" alt="" fill className="object-cover" style={{ objectPosition: "center 20%" }} priority />
+        {/* Top fade — blends from primary color into image */}
+        <div className="absolute inset-x-0 top-0 z-10" style={{ height: "25%", background: "linear-gradient(to bottom, var(--gradient-primary-to), transparent)" }} />
       </div>
 
     </div>
