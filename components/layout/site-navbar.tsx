@@ -1,22 +1,29 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { LanguageSelector } from "@/components/layout/language-selector"
 
 const NAV_LINKS = [
-  { label: "Home",                   href: "/" },
-  { label: "About",                  href: "/#about" },
-  { label: "Situations",             href: "/#situations" },
-  { label: "Advisory Services",      href: "/#advisory" },
-  { label: "Sectors",                href: "/#sectors" },
-  { label: "International Presence", href: "/#presence" },
-  { label: "Leadership",             href: "/#leadership" },
+  { label: "Home",                   hash: "hero" },
+  { label: "About",                  hash: "about" },
+  { label: "Situations",             hash: "situations" },
+  { label: "Advisory Services",      hash: "advisory" },
+  { label: "Sectors",                hash: "sectors" },
+  { label: "International Presence", hash: "presence" },
+  { label: "Leadership",             hash: "leadership" },
 ]
 
 export function SiteNavbar() {
+  const pathname = usePathname()
+  const isHome = pathname === "/"
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  function getHref(hash: string) {
+    return isHome ? `#${hash}` : `/#${hash}`
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -54,7 +61,7 @@ export function SiteNavbar() {
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.label}
-                  href={link.href}
+                  href={getHref(link.hash)}
                   className="text-white/80 hover:text-white text-sm transition-colors whitespace-nowrap"
                 >
                   {link.label}
@@ -65,7 +72,7 @@ export function SiteNavbar() {
               <LanguageSelector />
               <div className="w-px h-4 bg-white/30" />
               <a
-                href="/#contact"
+                href={getHref("contact")}
                 className="border border-white/60 hover:border-white hover:bg-white/10 text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
               >
                 Contact
@@ -94,7 +101,7 @@ export function SiteNavbar() {
             {NAV_LINKS.map((link, i) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={getHref(link.hash)}
                 onClick={handleNavClick}
                 className="py-4 text-white/80 hover:text-white text-base transition-colors border-b"
                 style={{
@@ -109,7 +116,7 @@ export function SiteNavbar() {
 
           <div className="mt-8 flex flex-col gap-3">
             <a
-              href="/#contact"
+              href={getHref("contact")}
               onClick={handleNavClick}
               className="flex items-center justify-center gap-2 bg-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
               style={{ color: "var(--color-primary)" }}
