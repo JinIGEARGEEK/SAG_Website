@@ -205,6 +205,16 @@ body {
     }
   }
 
+  /* Full-bleed grid edge cells — aligns with site-container at lg+ */
+  @media (min-width: 1024px) {
+    .grid-cell-pl { padding-left: 2.5rem; }
+    .grid-cell-pr { padding-right: 2.5rem; }
+  }
+  @media (min-width: 1280px) {
+    .grid-cell-pl { padding-left: max(2.5rem, calc((100vw - 1240px) / 2)); }
+    .grid-cell-pr { padding-right: max(2.5rem, calc((100vw - 1240px) / 2)); }
+  }
+
   /* Gradient utilities */
   .bg-gradient-primary { background: var(--gradient-primary); }
 

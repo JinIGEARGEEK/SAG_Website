@@ -113,11 +113,7 @@ export default function HomePage() {
             return (
               <FadeIn key={item.title} delay={i * 60}>
                 <div
-                  className="border-b border-r border-light-gray-2 py-12 lg:py-14 h-full"
-                  style={{
-                    paddingLeft:  col3 === 0 ? "max(2rem, calc((100vw - 1240px) / 2))" : "2rem",
-                    paddingRight: col3 === 2 ? "max(2rem, calc((100vw - 1240px) / 2))" : "2rem",
-                  }}
+                  className={`border-b border-r border-light-gray-2 py-12 lg:py-14 h-full px-4 sm:px-8 ${col3 === 0 ? "grid-cell-pl" : "lg:pl-10"} ${col3 === 2 ? "grid-cell-pr" : "lg:pr-10"}`}
                 >
                   <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
                   <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>

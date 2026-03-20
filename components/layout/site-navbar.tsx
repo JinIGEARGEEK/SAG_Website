@@ -41,7 +41,7 @@ export function SiteNavbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
-  const langRef = useRef<HTMLDivElement>(null)
+  const langRefDesktop = useRef<HTMLDivElement>(null)
   const locale = useLocale()
   const [, startTransition] = useTransition()
   const currentLang = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0]
@@ -58,7 +58,7 @@ export function SiteNavbar() {
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+      if (!langRefDesktop.current?.contains(e.target as Node)) {
         setLangOpen(false)
       }
     }
@@ -108,7 +108,7 @@ export function SiteNavbar() {
             <span className="w-px h-5 bg-white/20 shrink-0" />
 
             {/* Language dropdown */}
-            <div ref={langRef} className="relative">
+            <div ref={langRefDesktop} className="relative">
               <button
                 onClick={() => setLangOpen((v) => !v)}
                 className="flex items-center gap-1.5 text-white/80 hover:text-white text-sm transition-colors"

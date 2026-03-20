@@ -23,8 +23,8 @@ export function SectorsSection() {
         {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-          {/* Left: illustration */}
-          <div className="relative self-stretch">
+          {/* Left: illustration — hidden on mobile/tablet */}
+          <div className="relative self-stretch hidden lg:block">
             <div
               className="sticky top-24 rounded-sm overflow-hidden flex items-center justify-center"
               style={{ backgroundColor: "var(--color-light-gray-1)", height: "calc(100vh - 8rem)", maxHeight: "100%" }}
