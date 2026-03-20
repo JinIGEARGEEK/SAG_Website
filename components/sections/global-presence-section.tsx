@@ -75,7 +75,7 @@ function buildLineFeatures(): GeoJSON.Feature<GeoJSON.LineString>[] {
 
 
 export function GlobalPresenceSection() {
-  const [hovered, setHovered] = useState<string | null>(null)
+  const [hovered, setHovered] = useState<string>("UK")
   const mapContainer = useRef<HTMLDivElement>(null)
   const mapRef = useRef<maplibregl.Map | null>(null)
   const markersRef = useRef<maplibregl.Marker[]>([])
@@ -171,7 +171,7 @@ export function GlobalPresenceSection() {
       // ── HTML markers with animated white wave ──
       LOCATIONS.forEach((loc, i) => {
         const el = document.createElement("div")
-        el.className = "sag-node"
+        el.className = loc.label === "UK" ? "sag-node sag-node--active" : "sag-node"
         el.dataset.label = loc.label
         el.style.animationDelay = `${i * 0.4}s`
 
@@ -218,6 +218,11 @@ export function GlobalPresenceSection() {
           .addTo(map)
 
         markersRef.current.push(marker)
+
+        // Show UK popup on initial load
+        if (loc.label === "UK") {
+          popup.addTo(map)
+        }
       })
     })
 
@@ -255,13 +260,18 @@ export function GlobalPresenceSection() {
           overflow: visible;
         }
 
-        /* White wave rings — centered on the 0x0 anchor */
+        /* Wave rings — blue by default */
         .sag-node-wave {
           position: absolute;
           border-radius: 50%;
-          border: 1.5px solid rgba(255,255,255,0.6);
+          border: 1.5px solid rgba(72,154,175,0.6);
           animation: sag-wave 2.5s ease-out infinite;
           pointer-events: none;
+        }
+        /* Active/hovered node — white wave */
+        .sag-node--active .sag-node-wave,
+        .sag-node:hover .sag-node-wave {
+          border-color: rgba(255,255,255,0.7);
         }
 
         @keyframes sag-wave {
@@ -269,23 +279,34 @@ export function GlobalPresenceSection() {
           100% { width: 48px; height: 48px; top: -24px; left: -24px; opacity: 0; }
         }
 
-        /* Ambient glow */
+        /* Ambient glow — blue by default */
         .sag-node-glow {
           position: absolute; width: 20px; height: 20px;
           top: -10px; left: -10px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(72,154,175,0.3) 0%, transparent 70%);
           pointer-events: none;
         }
+        .sag-node--active .sag-node-glow,
+        .sag-node:hover .sag-node-glow {
+          background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+        }
 
-        /* Core dot */
+        /* Core dot — blue by default */
         .sag-node-core {
           position: absolute; width: 8px; height: 8px;
           top: -4px; left: -4px;
           border-radius: 50%;
+          background: #489AAF;
+          box-shadow: 0 0 6px rgba(72,154,175,0.8), 0 0 14px rgba(72,154,175,0.3);
+          pointer-events: none;
+          transition: background 0.2s, box-shadow 0.2s;
+        }
+        /* Active/hovered node — white dot */
+        .sag-node--active .sag-node-core,
+        .sag-node:hover .sag-node-core {
           background: #ffffff;
           box-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 14px rgba(255,255,255,0.3);
-          pointer-events: none;
         }
 
         /* ── Popup ── */
@@ -335,9 +356,9 @@ export function GlobalPresenceSection() {
               <span
                 key={c}
                 className="text-body-small cursor-pointer transition-colors duration-200"
-                style={{ color: hovered === c ? "#93C5FD" : "rgba(255,255,255,0.45)" }}
+                style={{ color: hovered === c ? "#ffffff" : "#489AAF" }}
                 onMouseEnter={() => setHovered(c)}
-                onMouseLeave={() => setHovered(null)}
+                onClick={() => setHovered(c)}
               >
                 {c}
               </span>
