@@ -57,91 +57,36 @@ export default async function ServicePage({
       </section>
 
       {/* ── Overview ── */}
+      {/* ── Services Include ── */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="site-container">
           <FadeIn>
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-              <div className="lg:col-span-4">
-                <p className="text-body-small font-medium uppercase tracking-[0.12em]" style={{ color: "var(--color-secondary)" }}>
-                  Overview
-                </p>
-              </div>
-              <div className="lg:col-span-8 flex flex-col gap-5">
-                {service.overview.map((para, i) => (
-                  <p key={i} className="text-body text-dark-gray leading-relaxed">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
-
-      {/* ── Capabilities ── */}
-      <section className="py-20 lg:py-28" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
-        <div className="site-container">
-          <FadeIn>
             <div className="mb-14">
-              <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-3" style={{ color: "var(--color-secondary)" }}>
-                Capabilities
+              <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-0" style={{ color: "var(--color-secondary)" }}>
+                What We Offer
               </p>
               <h2 className="text-heading-2 text-primary max-w-xl">
-                Key Areas of Advisory
+                Services Include
               </h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: "var(--color-light-gray-2)" }}>
-            {service.capabilities.map((cap, i) => (
-              <FadeIn key={cap.title} delay={i * 60}>
-                <div className="bg-white p-8 lg:p-10 h-full">
-                  <span
-                    className="text-body-tiny font-medium uppercase tracking-[0.1em] mb-4 block"
-                    style={{ color: "var(--color-secondary)" }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-title-4 text-primary mb-3">{cap.title}</h3>
-                  <p className="text-body-small text-dark-gray leading-relaxed">{cap.description}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Our Approach ── */}
-      <section className="py-20 lg:py-28" style={{ background: "var(--gradient-primary)" }}>
-        <div className="site-container">
-          <FadeIn>
-            <div className="mb-14">
-              <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-3" style={{ color: "rgba(255,255,255,0.45)" }}>
-                Our Approach
-              </p>
-              <h2 className="text-heading-2 text-white max-w-xl">
-                How We Work
-              </h2>
-            </div>
-          </FadeIn>
-
-          <div className="flex flex-col">
-            {service.approach.map((step, i) => (
-              <FadeIn key={step.step} delay={i * 80}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {service.services.map((item, i) => (
+              <FadeIn key={item.title} delay={i * 70}>
                 <div
-                  className={`grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 py-10 lg:py-12 ${i > 0 ? "border-t" : ""}`}
-                  style={{ borderColor: "rgba(255,255,255,0.1)" }}
+                  className="relative overflow-hidden rounded p-10 lg:p-12 h-full"
+                  style={{ backgroundColor: "var(--color-light-gray-1)" }}
                 >
-                  <div className="lg:col-span-1">
-                    <span className="text-title-3 font-bold" style={{ color: "rgba(255,255,255,0.2)" }}>
-                      {step.step}
+                  <div>
+                    <span
+                      className="text-body-tiny font-semibold uppercase tracking-[0.14em] block mb-6"
+                      style={{ color: "var(--color-secondary)" }}
+                    >
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                  </div>
-                  <div className="lg:col-span-4">
-                    <h3 className="text-title-3 text-white">{step.title}</h3>
-                  </div>
-                  <div className="lg:col-span-7">
-                    <p className="text-body text-white/65 leading-relaxed">{step.description}</p>
+                    <h3 className="text-title-2 text-primary mb-4">{item.title}</h3>
+                    <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </FadeIn>
@@ -149,38 +94,39 @@ export default async function ServicePage({
           </div>
         </div>
       </section>
+
 
       {/* ── Other Services ── */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="site-container">
           <FadeIn>
-            <div className="mb-12">
-              <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-3" style={{ color: "var(--color-secondary)" }}>
-                Related Services
+            <div className="mb-10">
+              <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-0" style={{ color: "var(--color-secondary)" }}>
+                Explore More
               </p>
-              <h2 className="text-heading-2 text-primary">Other Advisory Areas</h2>
+              <h2 className="text-heading-2 text-primary">Other Advisory Services</h2>
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px" style={{ backgroundColor: "var(--color-light-gray-2)" }}>
+          <div className="flex flex-col">
             {others.map((s, i) => (
               <FadeIn key={s.slug} delay={i * 60}>
                 <a
                   href={`/services/${s.slug}`}
-                  className="group flex flex-col justify-between p-8 lg:p-10 h-full bg-white transition-colors hover:bg-secondary-bg"
+                  className="group grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-4 lg:gap-16 py-8 border-t items-center transition-colors hover:bg-secondary-bg -mx-6 px-6 lg:-mx-10 lg:px-10"
+                  style={{ borderColor: "var(--color-light-gray-2)" }}
                 >
-                  <div>
-                    <h3 className="text-title-4 text-primary mb-3 group-hover:text-secondary transition-colors">
-                      {s.title}
-                    </h3>
-                    <p className="text-body-small text-dark-gray leading-relaxed line-clamp-3">
-                      {s.subtitle}
-                    </p>
-                  </div>
-                  <div className="mt-6 flex items-center gap-1.5 text-body-small font-medium transition-colors" style={{ color: "var(--color-secondary)" }}>
-                    Learn more
-                    <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                  </div>
+                  <h3 className="text-title-3 text-primary group-hover:text-secondary transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-body-small text-dark-gray leading-relaxed">
+                    {s.subtitle}
+                  </p>
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform group-hover:translate-x-1 shrink-0"
+                    style={{ color: "var(--color-secondary)" }}
+                  />
                 </a>
               </FadeIn>
             ))}

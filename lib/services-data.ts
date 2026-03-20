@@ -1,7 +1,13 @@
+export interface ServiceItem {
+  title: string
+  description: string
+}
+
 export interface Service {
   slug: string
   title: string
   subtitle: string
+  services: ServiceItem[]
   overview: string[]
   capabilities: { title: string; description: string }[]
   approach: { step: string; title: string; description: string }[]
@@ -11,7 +17,13 @@ export const SERVICES: Service[] = [
   {
     slug: "corporate-risk",
     title: "Corporate Risk & Due Diligence",
-    subtitle: "Independent assessment of governance frameworks, compliance structures and risk exposure to support sound decision-making.",
+    subtitle: "Supporting organisations and investors in understanding governance, regulatory and reputational risks associated with potential partners, investments and transactions.",
+    services: [
+      { title: "Investment due diligence", description: "Independent assessment of risks associated with potential investments, including governance, regulatory exposure and reputational factors. We evaluate financial structures, operational controls, and third-party relationships to provide a comprehensive risk picture before commitment." },
+      { title: "Counterparty assessment", description: "Structured review of business partners and third parties to identify compliance risks." },
+      { title: "Integrity review", description: "Confidential background and integrity assessment of individuals, organisations or assets in support of transactions or appointments. Our advisors draw on extensive networks and documentary sources across multiple jurisdictions to deliver objective, evidence-based findings." },
+      { title: "Market entry risk assessment", description: "Evaluation of regulatory, political and operational risks associated with entering new markets." },
+    ],
     overview: [
       "Stern Advisory Global provides comprehensive corporate risk and due diligence advisory to organisations navigating complex regulatory, financial and operational environments. Our approach combines deep sector expertise with independent, objective analysis.",
       "We work with boards, executive leadership and investors to identify, assess and mitigate risks that may affect organisational performance, reputation or compliance. Whether supporting a transaction, regulatory review or internal governance reform, our advisory is tailored to the specific circumstances and objectives of each client.",
@@ -68,7 +80,13 @@ export const SERVICES: Service[] = [
   {
     slug: "governance",
     title: "Governance & Integrity Advisory",
-    subtitle: "Strengthening board governance, integrity frameworks and institutional accountability across complex organisations.",
+    subtitle: "Supporting organisations in strengthening governance frameworks and reducing people-driven risk across leadership and operational structures.",
+    services: [
+      { title: "Governance reviews", description: "Assessment of governance structures, board composition and decision-making processes to identify gaps and areas for strengthening." },
+      { title: "Internal compliance assessments", description: "Review of internal compliance frameworks, policies and controls against applicable regulatory requirements and best practice." },
+      { title: "Whistleblowing frameworks", description: "Design and implementation of confidential reporting mechanisms and whistleblower protection policies for organisations of all sizes." },
+      { title: "Executive background screening", description: "Discreet background and integrity screening of senior appointments, board candidates and key personnel." },
+    ],
     overview: [
       "Effective governance is fundamental to organisational resilience and long-term performance. Stern Advisory Global works with organisations to assess, design and strengthen governance frameworks that reflect international standards and meet the expectations of regulators, investors and stakeholders.",
       "Our integrity advisory services address the full spectrum of governance risk — from board effectiveness and conflicts of interest to anti-corruption compliance and ethics programme design. We bring independence, discretion and practical expertise to sensitive governance matters.",
@@ -125,7 +143,13 @@ export const SERVICES: Service[] = [
   {
     slug: "security",
     title: "Security & Operational Resilience",
-    subtitle: "Advising on physical security, crisis preparedness and the continuity of critical operations in complex environments.",
+    subtitle: "Advising organisations on potential physical and organisational security vulnerabilities affecting operational continuity.",
+    services: [
+      { title: "Site security assessments", description: "Physical inspection and risk assessment of facilities, premises and critical infrastructure to identify security vulnerabilities." },
+      { title: "Operational resilience planning", description: "Development of resilience frameworks to maintain critical operations under adverse or disruptive conditions." },
+      { title: "Crisis preparedness reviews", description: "Assessment of crisis management plans, response protocols and organisational readiness for significant incidents." },
+      { title: "Security programme evaluation", description: "Independent evaluation of existing security programmes, policies and controls against organisational risk and best practice standards." },
+    ],
     overview: [
       "Organisations operating in complex, high-risk or politically sensitive environments require robust security and resilience strategies. Stern Advisory Global provides expert advisory to help clients protect their people, assets and operations against a broad range of physical and operational threats.",
       "Drawing on decades of experience across government, intelligence, defence and private sector environments, our advisors offer practical, risk-based guidance on security strategy, crisis preparedness and business continuity. We work with organisations across multiple sectors and jurisdictions to build enduring operational resilience.",
@@ -182,7 +206,13 @@ export const SERVICES: Service[] = [
   {
     slug: "cyber-security",
     title: "Cyber Security Advisory",
-    subtitle: "Strategic guidance on cyber risk, threat intelligence and digital security governance for organisations operating in complex environments.",
+    subtitle: "Supporting organisations in assessing digital vulnerabilities and improving cyber resilience across critical systems and data environments.",
+    services: [
+      { title: "Cyber risk assessments", description: "Independent assessment of cyber risk exposure across systems, networks and data environments, with prioritised recommendations." },
+      { title: "Digital exposure reviews", description: "Analysis of an organisation's external digital footprint and exposure to cyber threats, data leakage and online reputational risks." },
+      { title: "Technology risk advisory", description: "Strategic advisory on technology-related risks including third-party dependencies, legacy systems and digital transformation programmes." },
+      { title: "Data protection frameworks", description: "Review and development of data protection policies, controls and governance frameworks aligned to applicable regulatory requirements." },
+    ],
     overview: [
       "Cyber threats represent one of the most significant and rapidly evolving risks facing organisations today. Stern Advisory Global provides independent, strategic cyber security advisory to help organisations understand their cyber risk exposure, strengthen their security governance and build digital resilience.",
       "Our advisors bring deep expertise in cyber risk strategy, threat intelligence, regulatory compliance and incident response. We work with boards, CISOs and executive teams to translate complex technical risks into clear business decisions and actionable governance frameworks.",

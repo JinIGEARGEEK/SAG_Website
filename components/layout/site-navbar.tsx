@@ -5,13 +5,13 @@ import { Menu, X } from "lucide-react"
 import { LanguageSelector } from "@/components/layout/language-selector"
 
 const NAV_LINKS = [
-  { label: "Home",                   href: "#hero" },
-  { label: "About",                  href: "#about" },
-  { label: "Situations",             href: "#situations" },
-  { label: "Advisory Services",      href: "#advisory" },
-  { label: "Sectors",                href: "#sectors" },
-  { label: "International Presence", href: "#presence" },
-  { label: "Leadership",             href: "#leadership" },
+  { label: "Home",                   href: "/" },
+  { label: "About",                  href: "/#about" },
+  { label: "Situations",             href: "/#situations" },
+  { label: "Advisory Services",      href: "/#advisory" },
+  { label: "Sectors",                href: "/#sectors" },
+  { label: "International Presence", href: "/#presence" },
+  { label: "Leadership",             href: "/#leadership" },
 ]
 
 export function SiteNavbar() {
@@ -65,7 +65,7 @@ export function SiteNavbar() {
               <LanguageSelector />
               <div className="w-px h-4 bg-white/30" />
               <a
-                href="#contact"
+                href="/#contact"
                 className="border border-white/60 hover:border-white hover:bg-white/10 text-white text-sm px-5 py-2 rounded transition-colors whitespace-nowrap"
               >
                 Contact
@@ -109,7 +109,7 @@ export function SiteNavbar() {
 
           <div className="mt-8 flex flex-col gap-3">
             <a
-              href="#contact"
+              href="/#contact"
               onClick={handleNavClick}
               className="flex items-center justify-center gap-2 bg-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
               style={{ color: "var(--color-primary)" }}
