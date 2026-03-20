@@ -199,25 +199,25 @@ const ADVISORY_SERVICES_DARK = [
     slug: "corporate-risk",
     title: "Corporate Risk & Due Diligence",
     description:
-      "Develop comprehensive strategies aligned with your business goals. We assess governance frameworks, compliance structures and risk exposure to support sound decision-making.",
+      "Supporting organisations and investors in understanding governance, regulatory and reputational risks associated with potential partners, investments and transactions.",
   },
   {
     slug: "governance",
     title: "Governance & Integrity Advisory",
     description:
-      "Develop comprehensive strategies aligned with your business goals. We help organisations strengthen board governance, integrity frameworks and institutional accountability.",
+      "Supporting organisations in strengthening governance frameworks and reducing people-driven risk across leadership and operational structures.",
   },
   {
     slug: "security",
     title: "Security & Operational Resilience",
     description:
-      "Develop comprehensive strategies aligned with your business goals. We advise on physical security, crisis preparedness and the continuity of critical operations.",
+      "Advising organisations on potential physical and organisational security vulnerabilities affecting operational continuity.",
   },
   {
     slug: "cyber-security",
     title: "Cyber Security Advisory",
     description:
-      "Develop comprehensive strategies aligned with your business goals. We provide strategic guidance on cyber risk, threat intelligence and digital security governance.",
+      "Supporting organisations in assessing digital vulnerabilities and improving cyber resilience across critical systems and data environments.",
   },
 ]
 
