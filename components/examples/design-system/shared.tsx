@@ -70,12 +70,3 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
     </div>
   )
 }
-
-/* ── CodeBlock ── */
-export function CodeBlock({ children }: { children: React.ReactNode }) {
-  return (
-    <pre className="bg-[var(--color-black)] text-white text-[13px] leading-6 rounded-lg p-5 overflow-x-auto font-mono">
-      {children}
-    </pre>
-  )
-}
