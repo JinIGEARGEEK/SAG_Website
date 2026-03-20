@@ -58,7 +58,7 @@ export default async function ServicePage({
 
       {/* ── Overview ── */}
       {/* ── Services Include ── */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="pt-20 lg:pt-28 pb-14 bg-white">
         <div className="site-container">
           <FadeIn>
             <div className="mb-14">
@@ -97,7 +97,7 @@ export default async function ServicePage({
 
 
       {/* ── Other Services ── */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="pt-14 pb-20 lg:pb-28 bg-white">
         <div className="site-container">
           <FadeIn>
             <div className="mb-10">
@@ -113,10 +113,10 @@ export default async function ServicePage({
               <FadeIn key={s.slug} delay={i * 60}>
                 <a
                   href={`/services/${s.slug}`}
-                  className="group grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-4 lg:gap-16 py-8 border-t items-center transition-colors hover:bg-secondary-bg -mx-6 px-6 lg:-mx-10 lg:px-10"
+                  className="group grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-4 lg:gap-16 py-8 border-t items-center transition-colors hover:bg-secondary-bg"
                   style={{ borderColor: "var(--color-light-gray-2)" }}
                 >
-                  <h3 className="text-title-3 text-primary group-hover:text-secondary transition-colors">
+                  <h3 className="text-title-3 text-primary group-hover:text-primary/60 transition-colors">
                     {s.title}
                   </h3>
                   <p className="text-body-small text-dark-gray leading-relaxed">

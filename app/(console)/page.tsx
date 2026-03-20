@@ -14,51 +14,50 @@ export default function HomePage() {
     {/* Sticky Navbar */}
     <SiteNavbar />
 
-    <div id="hero" className="relative min-h-[90vh] flex flex-col" style={{ background: "var(--gradient-primary)" }}>
-
-      {/* Hero Map Background */}
-      <div className="absolute inset-0 select-none pointer-events-none overflow-hidden">
-        <Image
-          src="/hero-map.svg"
-          alt=""
-          fill
-          className="object-cover object-center"
-          priority
-        />
-      </div>
+    <div id="hero" className="relative flex flex-col overflow-hidden" style={{ background: "var(--gradient-primary)" }}>
 
       {/* Hero Content */}
-      <section className="relative z-10 flex-1 flex flex-col items-center justify-center text-center pt-24 pb-0">
+      <section className="relative z-10 flex flex-col items-center justify-center text-center pt-36 pb-16">
         <div className="site-container flex flex-col items-center">
-        <h1 className="text-heading-1 text-white max-w-3xl">
-          Strategic Advisory for Governance,
-        </h1>
-        <h2 className="text-heading-2 text-white/90 mt-3 max-w-2xl">
-          Security and Corporate Risk
-        </h2>
-        <p className="mt-6 text-body text-white/70 max-w-xl leading-relaxed">
-          Supporting organisations, investors and leadership teams in managing
-          governance, operational and security risks across complex environments.
-        </p>
+          <h1 className="text-heading-1 text-white max-w-3xl">
+            Strategic Advisory for Governance,
+          </h1>
+          <h2 className="text-heading-2 text-white/90 mt-3 max-w-2xl">
+            Security and Corporate Risk
+          </h2>
+          <p className="mt-6 text-body text-white/70 max-w-xl leading-relaxed">
+            Supporting organisations, investors and leadership teams in managing
+            governance, operational and security risks across complex environments.
+          </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
-          <a
-            href="#contact"
-            className="flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
-          >
-            Request Introduction
-            <ArrowRight size={16} />
-          </a>
-          <a
-            href="#advisory"
-            className="flex items-center justify-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
-          >
-            View Our Advisory Services
-            <ArrowRight size={16} />
-          </a>
-        </div>
+          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+            <a
+              href="#contact"
+              className="flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
+            >
+              Request Introduction
+              <ArrowRight size={16} />
+            </a>
+            <a
+              href="#advisory"
+              className="flex items-center justify-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
+            >
+              View Our Advisory Services
+              <ArrowRight size={16} />
+            </a>
+          </div>
         </div>
       </section>
+
+      {/* World map image — blends with hero background */}
+      <div className="relative w-full select-none pointer-events-none" style={{ height: "480px" }}>
+        <Image src="/hero-world-map.jpg" alt="" fill className="object-cover object-center" priority />
+        {/* Top fade — strong, covers ~60% so image emerges gradually */}
+        <div className="absolute inset-x-0 top-0 z-10" style={{ height: "65%", background: "linear-gradient(to bottom, #0A1F3C 0%, #0A1F3C 20%, rgba(10,31,60,0.85) 45%, rgba(10,31,60,0.4) 70%, transparent 100%)" }} />
+        {/* Side vignette */}
+        <div className="absolute inset-y-0 left-0 w-40 z-10" style={{ background: "linear-gradient(to right, #0A1F3C, transparent)" }} />
+        <div className="absolute inset-y-0 right-0 w-40 z-10" style={{ background: "linear-gradient(to left, #0A1F3C, transparent)" }} />
+      </div>
 
     </div>
 
@@ -109,14 +108,23 @@ export default function HomePage() {
         </FadeIn>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-l border-t border-light-gray-2">
-          {ADVISORY_SERVICES.map((item, i) => (
-            <FadeIn key={item.title} delay={i * 60}>
-              <div className="border-b border-r border-light-gray-2 px-10 py-12 lg:px-14 lg:py-14 h-full">
-                <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
-                <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
-              </div>
-            </FadeIn>
-          ))}
+          {ADVISORY_SERVICES.map((item, i) => {
+            const col3 = i % 3
+            return (
+              <FadeIn key={item.title} delay={i * 60}>
+                <div
+                  className="border-b border-r border-light-gray-2 py-12 lg:py-14 h-full"
+                  style={{
+                    paddingLeft:  col3 === 0 ? "max(3.5rem, calc((100vw - 1240px) / 2))" : "3.5rem",
+                    paddingRight: col3 === 2 ? "max(3.5rem, calc((100vw - 1240px) / 2))" : "3.5rem",
+                  }}
+                >
+                  <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>
+                  <p className="text-body-small text-dark-gray leading-relaxed">{item.description}</p>
+                </div>
+              </FadeIn>
+            )
+          })}
         </div>
 
       </section>

@@ -2,59 +2,7 @@
 
 import { useState } from "react"
 import { Plus, ArrowUpRight } from "lucide-react"
-
-const SECTORS = [
-  {
-    title: "Financial Services",
-    description:
-      "We advise financial institutions, banks and asset managers on governance, regulatory risk and operational resilience in complex and evolving market environments.",
-  },
-  {
-    title: "Private Equity",
-    description:
-      "We support private equity firms and their portfolio companies in navigating governance, due diligence and strategic risk across the investment lifecycle.",
-  },
-  {
-    title: "Energy and Resources",
-    description:
-      "We advise energy and resource companies on risk strategy, regulatory compliance and operational security across upstream, midstream and downstream activities.",
-  },
-  {
-    title: "Infrastructure and Real Assets",
-    description:
-      "We provide advisory services to infrastructure owners and operators managing governance, security and resilience challenges across critical asset portfolios.",
-  },
-  {
-    title: "Technology and Digital Economy",
-    description:
-      "We support technology companies in managing cyber risk, regulatory compliance and governance as they scale across domestic and international markets.",
-  },
-  {
-    title: "Industrial and Manufacturing",
-    description:
-      "We advise industrial and manufacturing organisations on operational risk, supply chain security and corporate governance in complex operating environments.",
-  },
-  {
-    title: "Media and Communications",
-    description:
-      "We provide risk and governance advisory to media, broadcast and communications organisations navigating reputational, regulatory and operational challenges.",
-  },
-  {
-    title: "Life Sciences",
-    description:
-      "We advise life sciences organisations on corporate governance, regulatory risk and operational resilience across research, development and commercialisation.",
-  },
-  {
-    title: "Consumer Markets",
-    description:
-      "We support consumer-facing businesses in managing brand risk, governance and operational security as they expand across diverse and competitive markets.",
-  },
-  {
-    title: "Legal and Professional Services",
-    description:
-      "We advise professional services firms on governance, risk management and operational resilience as they manage complex client and regulatory obligations.",
-  },
-]
+import { SECTORS } from "@/lib/sectors-data"
 
 export function SectorsSection() {
   const [open, setOpen] = useState(0)
@@ -123,11 +71,11 @@ export function SectorsSection() {
 
                 {open === i && (
                   <div className="pb-6">
-                    <p className="text-body-small text-dark-gray leading-relaxed mb-3">
+                    <p className="text-body-small text-dark-gray leading-relaxed mb-3 line-clamp-2">
                       {sector.description}
                     </p>
                     <a
-                      href="#"
+                      href={`/sectors/${sector.slug}`}
                       className="inline-flex items-center gap-1.5 text-body-small text-primary underline underline-offset-4 hover:opacity-70 transition-opacity"
                     >
                       Read more

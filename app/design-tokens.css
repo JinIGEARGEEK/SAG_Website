@@ -38,7 +38,7 @@
 
   /* Layout */
   --site-max-width: 1240px;
-  --site-padding-x: 2.5rem;
+  --site-padding-x: 0rem;
 
   /* Gradients */
   --gradient-primary-from: #0A1F3C;
