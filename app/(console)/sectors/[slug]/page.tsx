@@ -54,7 +54,7 @@ export default async function SectorPage({
       </section>
 
       {/* ── Main content + Sidebar ── */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="pt-10 pb-20 lg:py-28 bg-white">
         <div className="site-container">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-16 items-start">
 
@@ -63,9 +63,31 @@ export default async function SectorPage({
 
               {/* Description */}
               <FadeIn>
-                <p className="text-body text-dark-gray leading-relaxed mb-16 max-w-2xl">
+                <p className="text-body text-dark-gray leading-relaxed mb-12">
                   {sector.description}
                 </p>
+              </FadeIn>
+
+              {/* CTA */}
+              <FadeIn>
+                <div className="p-10 rounded flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
+                  <div>
+                    <h2 className="text-title-2 text-primary mb-3">
+                      Discuss Your Requirements
+                    </h2>
+                    <p className="text-body-small text-dark-gray max-w-sm">
+                      All enquiries are treated with the utmost discretion. Contact our senior team to arrange a confidential introduction.
+                    </p>
+                  </div>
+                  <a
+                    href="/#contact"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-white px-6 py-3 rounded transition-opacity hover:opacity-85 shrink-0"
+                    style={{ backgroundColor: "var(--color-primary)" }}
+                  >
+                    Request a Confidential Introduction
+                    <ArrowRight size={16} />
+                  </a>
+                </div>
               </FadeIn>
 
             </div>
@@ -96,28 +118,6 @@ export default async function SectorPage({
 
           </div>
         </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-20 lg:py-24" style={{ backgroundColor: "var(--color-light-gray-1)" }}>
-        <FadeIn>
-          <div className="site-container text-center">
-            <h2 className="text-heading-2 text-primary mb-4">
-              Discuss Your Requirements
-            </h2>
-            <p className="text-body text-dark-gray max-w-md mx-auto mb-8">
-              All enquiries are treated with the utmost discretion. Contact our senior team to arrange a confidential introduction.
-            </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 text-sm font-medium text-white px-8 py-4 rounded transition-opacity hover:opacity-85"
-              style={{ backgroundColor: "var(--color-primary)" }}
-            >
-              Request a Confidential Introduction
-              <ArrowRight size={16} />
-            </a>
-          </div>
-        </FadeIn>
       </section>
 
       <FooterSection />

@@ -1,0 +1,11 @@
+{
+  "nav": { "dashboard": "Dashboard", "examples": "Beispiele" },
+  "examples": {
+    "title": "Beispiele für allgemeine Tools",
+    "i18n": { "heading": "Internationalisierung", "greeting": "Hallo, {name}!", "switchTo": "Sprache wechseln" },
+    "form": { "heading": "Formularvalidierung", "name": "Vollständiger Name", "email": "E-Mail", "phone": "Telefon", "role": "Rolle", "submit": "Speichern", "success": "Profil gespeichert!" },
+    "formatter": { "heading": "Datums- und Zahlenformatierung" },
+    "state": { "heading": "Globaler Status", "count": "Anzahl: {count}", "increment": "Erhöhen" },
+    "toast": { "heading": "Benachrichtigungen", "success": "Erfolg", "error": "Fehler", "warning": "Warnung" }
+  }
+}

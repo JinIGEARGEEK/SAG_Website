@@ -58,10 +58,10 @@ export default async function ServicePage({
 
       {/* ── Overview ── */}
       {/* ── Services Include ── */}
-      <section className="pt-20 lg:pt-28 pb-14 bg-white">
+      <section className="pt-10 md:pt-14 lg:pt-28 pb-14 bg-white">
         <div className="site-container">
           <FadeIn>
-            <div className="mb-14">
+            <div className="mb-8 lg:mb-14">
               <p className="text-body-small font-medium uppercase tracking-[0.12em] mb-0" style={{ color: "var(--color-secondary)" }}>
                 What We Offer
               </p>
@@ -97,7 +97,7 @@ export default async function ServicePage({
 
 
       {/* ── Other Services ── */}
-      <section className="pt-14 pb-20 lg:pb-28 bg-white">
+      <section className="pt-10 pb-20 lg:pt-14 lg:pb-28 bg-white">
         <div className="site-container">
           <FadeIn>
             <div className="mb-10">
@@ -113,15 +113,17 @@ export default async function ServicePage({
               <FadeIn key={s.slug} delay={i * 60}>
                 <a
                   href={`/services/${s.slug}`}
-                  className="group grid grid-cols-1 lg:grid-cols-[1fr_2fr_auto] gap-4 lg:gap-16 py-8 border-t items-center transition-colors hover:bg-secondary-bg"
+                  className="group flex items-center justify-between gap-8 lg:grid lg:grid-cols-[1fr_2fr_auto] lg:gap-16 py-8 lg:px-6 border-t transition-colors hover:bg-secondary-bg"
                   style={{ borderColor: "var(--color-light-gray-2)" }}
                 >
-                  <h3 className="text-title-3 text-primary group-hover:text-primary/60 transition-colors">
-                    {s.title}
-                  </h3>
-                  <p className="text-body-small text-dark-gray leading-relaxed">
-                    {s.subtitle}
-                  </p>
+                  <div className="flex-1 min-w-0 lg:contents">
+                    <h3 className="text-title-3 text-primary group-hover:text-primary/60 transition-colors mb-2 lg:mb-0">
+                      {s.title}
+                    </h3>
+                    <p className="text-body-small text-dark-gray leading-relaxed">
+                      {s.subtitle}
+                    </p>
+                  </div>
                   <ArrowRight
                     size={18}
                     className="transition-transform group-hover:translate-x-1 shrink-0"
