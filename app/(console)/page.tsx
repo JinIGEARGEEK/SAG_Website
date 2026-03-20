@@ -75,11 +75,11 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {SITUATIONS.map((item, i) => (
               <FadeIn key={item.title} delay={i * 80}>
                 <div
-                  className={`lg:px-8 py-6 lg:py-2 ${i < SITUATIONS.length - 1 ? "lg:border-r border-light-gray-2" : ""} ${i < 2 ? "sm:border-b lg:border-b-0 border-light-gray-2" : ""}`}
+                  className={`lg:px-8 pb-6 lg:pb-2 ${i < SITUATIONS.length - 1 ? "lg:border-r border-light-gray-2" : ""} ${i < 2 ? "sm:border-b lg:border-b-0 border-light-gray-2" : ""}`}
                 >
                   <div className="w-12 h-12 rounded-lg bg-secondary-bg flex items-center justify-center mb-8">
                     <item.Icon size={22} style={{ color: 'var(--color-secondary)' }} strokeWidth={1.5} />
@@ -115,8 +115,8 @@ export default function HomePage() {
                 <div
                   className="border-b border-r border-light-gray-2 py-12 lg:py-14 h-full"
                   style={{
-                    paddingLeft:  col3 === 0 ? "max(3.5rem, calc((100vw - 1240px) / 2))" : "3.5rem",
-                    paddingRight: col3 === 2 ? "max(3.5rem, calc((100vw - 1240px) / 2))" : "3.5rem",
+                    paddingLeft:  col3 === 0 ? "max(2rem, calc((100vw - 1240px) / 2))" : "2rem",
+                    paddingRight: col3 === 2 ? "max(2rem, calc((100vw - 1240px) / 2))" : "2rem",
                   }}
                 >
                   <h3 className="text-title-4 text-primary mb-2">{item.title}</h3>

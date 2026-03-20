@@ -42,7 +42,7 @@ export default function ServicesPage() {
               <FadeIn key={service.slug} delay={i * 80}>
                 <a
                   href={`/services/${service.slug}`}
-                  className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 py-12 lg:py-14 border-b items-start transition-colors hover:bg-secondary-bg -mx-6 px-6 lg:-mx-10 lg:px-10"
+                  className="group grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 py-12 lg:py-14 border-b items-start transition-colors hover:bg-secondary-bg lg:-mx-10 lg:px-10"
                   style={{ borderColor: "var(--color-light-gray-2)" }}
                 >
                   {/* Number */}
@@ -84,7 +84,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="lg:col-span-1 flex lg:justify-end lg:pt-1">
+                  <div className="lg:col-span-1 flex justify-end lg:pt-1">
                     <ArrowRight
                       size={18}
                       className="transition-transform group-hover:translate-x-1"
