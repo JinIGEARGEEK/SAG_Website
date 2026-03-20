@@ -153,7 +153,7 @@ export default function HomePage() {
                       {item.description}
                     </p>
                     <a
-                      href="#"
+                      href={`/services/${item.slug}`}
                       className="inline-flex items-center gap-1.5 text-body-small text-white underline underline-offset-4 hover:opacity-80 transition-opacity"
                     >
                       Explore services
@@ -196,21 +196,25 @@ export default function HomePage() {
 
 const ADVISORY_SERVICES_DARK = [
   {
+    slug: "corporate-risk",
     title: "Corporate Risk & Due Diligence",
     description:
       "Develop comprehensive strategies aligned with your business goals. We assess governance frameworks, compliance structures and risk exposure to support sound decision-making.",
   },
   {
+    slug: "governance",
     title: "Governance & Integrity Advisory",
     description:
       "Develop comprehensive strategies aligned with your business goals. We help organisations strengthen board governance, integrity frameworks and institutional accountability.",
   },
   {
+    slug: "security",
     title: "Security & Operational Resilience",
     description:
       "Develop comprehensive strategies aligned with your business goals. We advise on physical security, crisis preparedness and the continuity of critical operations.",
   },
   {
+    slug: "cyber-security",
     title: "Cyber Security Advisory",
     description:
       "Develop comprehensive strategies aligned with your business goals. We provide strategic guidance on cyber risk, threat intelligence and digital security governance.",
