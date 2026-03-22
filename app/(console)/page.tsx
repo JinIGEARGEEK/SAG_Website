@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { ArrowRight, ArrowUpRight, Briefcase, Shield, ShieldCheck, RefreshCw } from "lucide-react"
 import { SiteNavbar } from "@/components/layout/site-navbar"
 import { FadeIn } from "@/components/ui/fade-in"
@@ -7,6 +6,7 @@ import { GlobalPresenceSection } from "@/components/sections/global-presence-sec
 import { LeadershipSection } from "@/components/sections/leadership-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { FooterSection } from "@/components/sections/footer-section"
+import Image from "next/image"
 
 export default function HomePage() {
   return (
@@ -14,10 +14,25 @@ export default function HomePage() {
     {/* Sticky Navbar */}
     <SiteNavbar />
 
-    <div id="hero" className="relative flex flex-col overflow-hidden">
+    <div id="hero" className="relative flex flex-col overflow-hidden" style={{ minHeight: "90vh", backgroundColor: "#07122a" }}>
 
-      {/* Plain color area for text */}
-      <section className="relative z-10 flex flex-col items-center justify-center text-center pt-36 pb-16" style={{ background: "var(--gradient-primary)" }}>
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        <Image src="/hero-map.jpg" alt="" fill className="object-cover" style={{ objectPosition: "center -250%" }} priority />
+        {/* Dark tint — make image darker so text is readable */}
+        <div className="absolute inset-0" style={{ background: "rgba(8,20,45,0.75)" }} />
+        {/* Top vignette — blend with navbar */}
+        <div className="absolute inset-x-0 top-0" style={{ height: "45%", background: "linear-gradient(to bottom, rgba(10,31,60,0.95), transparent)" }} />
+        {/* Bottom fade — blend into next section */}
+        <div className="absolute inset-x-0 bottom-0" style={{ height: "35%", background: "linear-gradient(to top, var(--gradient-primary-to), transparent)" }} />
+        {/* Left vignette */}
+        <div className="absolute inset-y-0 left-0" style={{ width: "20%", background: "linear-gradient(to right, rgba(10,31,60,0.7), transparent)" }} />
+        {/* Right vignette */}
+        <div className="absolute inset-y-0 right-0" style={{ width: "20%", background: "linear-gradient(to left, rgba(10,31,60,0.7), transparent)" }} />
+      </div>
+
+      {/* Hero Content */}
+      <section className="relative z-10 flex flex-1 flex-col items-center justify-start text-center pt-48 pb-16">
         <div className="site-container flex flex-col items-center">
           <h1 className="text-heading-1 text-white max-w-3xl">
             Strategic Advisory for Governance,
@@ -25,22 +40,22 @@ export default function HomePage() {
           <h2 className="text-heading-2 text-white/90 mt-3 max-w-2xl">
             Security and Corporate Risk
           </h2>
-          <p className="mt-6 text-body text-white/70 max-w-xl leading-relaxed">
+          <p className="mt-6 text-body text-white/65 max-w-lg leading-relaxed">
             Supporting organisations, investors and leadership teams in managing
             governance, operational and security risks across complex environments.
           </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
+          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <a
               href="#contact"
-              className="flex items-center justify-center gap-2 bg-white text-(--color-primary) text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
+              className="flex items-center justify-center gap-2 bg-white text-[var(--color-primary)] text-sm font-medium px-7 py-3.5 rounded hover:bg-white/90 transition-colors"
             >
               Request Introduction
               <ArrowRight size={16} />
             </a>
             <a
               href="#advisory"
-              className="flex items-center justify-center gap-2 border border-white/50 hover:border-white hover:bg-white/20 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
+              className="flex items-center justify-center gap-2 border border-white/50 bg-white/30 hover:border-white hover:bg-white/40 text-white text-sm font-medium px-7 py-3.5 rounded transition-colors"
             >
               View Our Advisory Services
               <ArrowRight size={16} />
@@ -48,13 +63,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Background image below text — fades from gradient into image */}
-      <div className="relative w-full select-none pointer-events-none" style={{ height: "380px" }}>
-        <Image src="/hero_bg.png" alt="" fill className="object-cover" style={{ objectPosition: "center 20%" }} priority />
-        {/* Top fade — blends from primary color into image */}
-        <div className="absolute inset-x-0 top-0 z-10" style={{ height: "25%", background: "linear-gradient(to bottom, var(--gradient-primary-to), transparent)" }} />
-      </div>
 
     </div>
 
